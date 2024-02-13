@@ -1,6 +1,7 @@
 /// <reference types="@workadventure/iframe-api-typings" />
 
 import { bootstrapExtra } from "@workadventure/scripting-api-extra";
+import { log } from "console";
 
 console.log("Script started successfully");
 
@@ -9,9 +10,14 @@ let check = false;
 
 // Waiting for the API to be ready
 WA.onInit()
-  .then(async () => {
+  .then(() => {
     console.log("Scripting API ready");
-
+    const players = WA.players.list();
+    console.log(players);
+    for (const player of players) {
+      console.log(`name: ${player.name}`);
+      console.log(`id: ${player.uuid}`);
+    }
     console.log("Token: ", WA.player.userRoomToken);
     console.log("Player name: ", WA.player.name);
     console.log("Player tags: ", WA.player.tags);
@@ -49,15 +55,7 @@ WA.onInit()
       },
     });
 
-    await WA.players.configureTracking();
-    const players = WA.players.list();
-    for (const player of players) {
-      console.log(`Player ${player.name} is near you`);
-    }
-    for (const player of players) {
-      console.log(`name: ${player.name}`);
-      console.log(`id: ${player.playerId}`);
-    }
+    
 
     WA.room.area.onEnter("clock").subscribe(() => {
       const today = new Date();
