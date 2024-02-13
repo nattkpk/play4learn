@@ -11,7 +11,11 @@ let check = false;
 WA.onInit()
   .then(() => {
     console.log("Scripting API ready");
+
+    console.log("Token: ", WA.player.userRoomToken);
+    console.log("Player name: ", WA.player.name);
     console.log("Player tags: ", WA.player.tags);
+    console.log("Player ID: ", WA.player.id);
 
     WA.ui.actionBar.addButton({
       id: "btn-trueeye",
