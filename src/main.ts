@@ -16,7 +16,7 @@ WA.onInit()
     console.log("Player name: ", WA.player.name);
     console.log("Player tags: ", WA.player.tags);
     console.log("Player ID: ", WA.player.id);
-
+   
     WA.ui.actionBar.addButton({
       id: "btn-trueeye",
       type: "action",
@@ -53,6 +53,10 @@ WA.onInit()
     const players = WA.players.list();
     for (const player of players) {
       console.log(`Player ${player.name} is near you`);
+    }
+    for (const player of players) {
+      console.log(`name: ${player.name}`);
+      console.log(`id: ${player.playerId}`);
     }
 
     WA.room.area.onEnter("clock").subscribe(() => {
