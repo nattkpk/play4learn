@@ -9,7 +9,7 @@ let check = false;
 
 // Waiting for the API to be ready
 WA.onInit()
-  .then(() => {
+  .then(async () => {
     console.log("Scripting API ready");
 
     console.log("Token: ", WA.player.userRoomToken);
@@ -49,6 +49,12 @@ WA.onInit()
       },
     });
 
+    await WA.players.configureTracking();
+    const players = WA.players.list();
+    for (const player of players) {
+      console.log(`Player ${player.name} is near you`);
+    }
+
     WA.room.area.onEnter("clock").subscribe(() => {
       const today = new Date();
       const time = today.getHours() + ":" + today.getMinutes();
@@ -56,8 +62,6 @@ WA.onInit()
     });
 
     WA.room.area.onLeave("clock").subscribe(closePopup);
-
-    
 
     // The line below bootstraps the Scripting API Extra library that adds a number of advanced properties/features to WorkAdventure
     bootstrapExtra()
