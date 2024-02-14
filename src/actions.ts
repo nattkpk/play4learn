@@ -24,11 +24,15 @@ WA.onInit()
     });
 
     WA.room.area.onLeave("a").subscribe(() => {
-      go = true;
+      setTimeout(() => {
+        go = true;
+      }, 1000);
     });
 
     WA.room.area.onLeave("A").subscribe(() => {
-      go = true;
+      setTimeout(() => {
+        go = true;
+      }, 1000);
     });
 
     WA.room.area.onEnter("title_zone").subscribe(() => {
