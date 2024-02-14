@@ -2,9 +2,11 @@
 
 import { bootstrapExtra } from "@workadventure/scripting-api-extra";
 
+import "./roofs";
+import "./actions";
+
 console.log("Script started successfully");
 
-let currentPopup: any = undefined;
 let check = false;
 
 // Waiting for the API to be ready
@@ -23,7 +25,7 @@ WA.onInit()
     console.log("Player name: ", WA.player.name);
     console.log("Player tags: ", WA.player.tags);
     console.log("Player ID: ", WA.player.id);
-   
+
     WA.ui.actionBar.addButton({
       id: "btn-trueeye",
       type: "action",
@@ -56,38 +58,6 @@ WA.onInit()
       },
     });
 
-    WA.room.area.onEnter("A").subscribe(() => {
-        console.log('A to a');
-      });
-
-      WA.room.area.onEnter("a").subscribe(() => {
-        WA.nav.goToRoom("#A");
-        console.log('a to A');
-      });
-
-
-
-
-
-    WA.room.area.onEnter("title_zone").subscribe(() => {
-        const today = new Date();
-        const time = today.getHours() + ":" + today.getMinutes();
-        console.log('titlezone');
-        
-        currentPopup = WA.ui.openPopup("title_pop", "Welcome to Learning Center" + time, []);
-      });
-    WA.room.area.onLeave("title_zone").subscribe(closePopup);
-
-    WA.room.area.onEnter("clock").subscribe(() => {
-      const today = new Date();
-      const time = today.getHours() + ":" + today.getMinutes();
-      currentPopup = WA.ui.openPopup("clockPopup", "It's " + time, []);
-    });
-    WA.room.area.onLeave("clock").subscribe(closePopup);
-
-
-
-
     // The line below bootstraps the Scripting API Extra library that adds a number of advanced properties/features to WorkAdventure
     bootstrapExtra()
       .then(() => {
@@ -96,13 +66,6 @@ WA.onInit()
       .catch((e) => console.error(e));
   })
   .catch((e) => console.error(e));
-
-function closePopup() {
-  if (currentPopup !== undefined) {
-    currentPopup.close();
-    currentPopup = undefined;
-  }
-}
 
 const codingthailand = async () => {
   WA.ui.modal.closeModal();
