@@ -54,23 +54,34 @@ WA.onInit()
       },
     });
 
+    WA.room.area.onEnter("A").subscribe(() => {
+        WA.nav.goToRoom("#a");
+      });
+
+      WA.room.area.onEnter("a").subscribe(() => {
+        WA.nav.goToRoom("#A");
+      });
+
+
+
+
+
     WA.room.area.onEnter("title_zone").subscribe(() => {
         const today = new Date();
         const time = today.getHours() + ":" + today.getMinutes();
         currentPopup = WA.ui.openPopup("Welcome to Learning Center", "time it's " + time, []);
       });
-  
-      WA.room.area.onLeave("title_zone").subscribe(closePopup);
-
-    
+    WA.room.area.onLeave("title_zone").subscribe(closePopup);
 
     WA.room.area.onEnter("clock").subscribe(() => {
       const today = new Date();
       const time = today.getHours() + ":" + today.getMinutes();
       currentPopup = WA.ui.openPopup("clockPopup", "It's " + time, []);
     });
-
     WA.room.area.onLeave("clock").subscribe(closePopup);
+
+
+
 
     // The line below bootstraps the Scripting API Extra library that adds a number of advanced properties/features to WorkAdventure
     bootstrapExtra()
