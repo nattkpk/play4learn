@@ -53,7 +53,7 @@ WA.onInit()
 
       currentPopup = WA.ui.openPopup(
         "title_pop",
-        "Welcome to Learning Center" + time,
+        "Welcome to Learning Center!! : At " + time,
         []
       );
     });
