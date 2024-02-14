@@ -3,7 +3,8 @@
 console.info("Actions Script started successfully");
 
 let currentPopup: any = undefined;
-let go: boolean = true;
+// let go: boolean = true;
+
 // Waiting for the API to be ready
 WA.onInit()
   .then(() => {
