@@ -9,8 +9,10 @@ let check = false;
 
 // Waiting for the API to be ready
 WA.onInit()
-  .then(() => {
+  .then(async () => {
     console.log("Scripting API ready");
+    await WA.players.configureTracking();
+
     const players = WA.players.list();
     console.log(players);
     for (const player of players) {
