@@ -7,7 +7,9 @@ import "./actions";
 
 console.log("Script started successfully");
 
-let check = false;
+let check1 = false;
+let check2 = false;
+
 
 // Waiting for the API to be ready
 WA.onInit()
@@ -26,19 +28,23 @@ WA.onInit()
     console.log("Player tags: ", WA.player.tags);
     console.log("Player ID: ", WA.player.id);
 
+
+
+
+
     WA.ui.actionBar.addButton({
       id: "btn-trueeye",
       type: "action",
       imageSrc: "https://i.ibb.co/8452NqN/rocket-lunchx.png",
       toolTip: "AI ThaiGen",
       callback: () => {
-        if (check) {
+        if (check1) {
           WA.ui.modal.closeModal();
-          check = false;
+          check1 = false;
           return;
         }
         aithaigen();
-        check = true;
+        check1 = true;
       },
     });
 
@@ -48,13 +54,13 @@ WA.onInit()
       imageSrc: "https://i.ibb.co/JFXcrqH/computerx.png",
       toolTip: "Coding Thailand",
       callback: () => {
-        if (check) {
+        if (check2) {
           WA.ui.modal.closeModal();
-          check = false;
+          check2 = false;
           return;
         }
         codingthailand();
-        check = true;
+        check2 = true;
       },
     });
 
