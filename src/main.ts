@@ -56,10 +56,12 @@ WA.onInit()
 
     WA.room.area.onEnter("A").subscribe(() => {
         WA.nav.goToRoom("#a");
+        console.log('A to a');
       });
 
       WA.room.area.onEnter("a").subscribe(() => {
         WA.nav.goToRoom("#A");
+        console.log('a to A');
       });
 
 
@@ -69,6 +71,8 @@ WA.onInit()
     WA.room.area.onEnter("title_zone").subscribe(() => {
         const today = new Date();
         const time = today.getHours() + ":" + today.getMinutes();
+        console.log('titlezone');
+        
         currentPopup = WA.ui.openPopup("title_pop", "Welcome to Learning Center" + time, []);
       });
     WA.room.area.onLeave("title_zone").subscribe(closePopup);
