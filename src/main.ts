@@ -55,12 +55,10 @@ WA.onInit()
     });
 
     WA.room.area.onEnter("A").subscribe(() => {
-        WA.nav.goToRoom("#a");
         console.log('A to a');
       });
 
       WA.room.area.onEnter("a").subscribe(() => {
-        WA.nav.goToRoom("#A");
         console.log('a to A');
       });
 
