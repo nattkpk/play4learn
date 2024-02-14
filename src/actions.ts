@@ -7,19 +7,19 @@ let go: boolean = true;
 // Waiting for the API to be ready
 WA.onInit()
   .then(() => {
-    WA.room.area.onEnter("A").subscribe(() => {
+    WA.room.area.onEnter("P1").subscribe(() => {
       if (go == true) {
-        WA.nav.goToRoom("#a");
+        WA.nav.goToRoom("#R1");
         go = false;
-        console.log("A to a");
+        console.log("Portal1 to Room1");
       }
     });
 
-    WA.room.area.onEnter("a").subscribe(() => {
+    WA.room.area.onEnter("R1").subscribe(() => {
       if (go == true) {
-        WA.nav.goToRoom("#A");
+        WA.nav.goToRoom("#P1");
         go = false;
-        console.log("a to A");
+        console.log("Room1 to Portal1");
       }
     });
 

@@ -4,12 +4,62 @@ console.info('Roofs Script started successfully');
 
 // Waiting for the API to be ready
 WA.onInit().then(() => {
-    WA.room.area.onEnter("roof1").subscribe(() => {
-        WA.room.hideLayer("roof1"); 
+    WA.room.area.onEnter("hallZone").subscribe(() => {
+        WA.room.hideLayer("roofHall"); 
     });
-    WA.room.area.onLeave("roof1").subscribe(() => {
-        
-        WA.room.showLayer("roof1");
+    WA.room.area.onLeave("hallZone").subscribe(() => {
+        WA.room.showLayer("roofHall");
+    });
+
+    WA.room.area.onEnter("roomsZone").subscribe(() => {
+        WA.room.hideLayer("roofRooms"); 
+        WA.room.hideLayer("logo-LearningCenter"); 
+    });
+    WA.room.area.onLeave("roomsZone").subscribe(() => {
+        WA.room.showLayer("roofRooms");
+        WA.room.showLayer("logo-LearningCenter");
+    });
+
+    WA.room.area.onEnter("1").subscribe(() => {
+        WA.room.hideLayer("above/aboveRoom1-Front"); 
+    });
+    WA.room.area.onLeave("1").subscribe(() => {
+        WA.room.showLayer("above/aboveRoom1-Front");
+    });
+
+    WA.room.area.onEnter("2").subscribe(() => {
+        WA.room.hideLayer("above/aboveRoom2-Front"); 
+    });
+    WA.room.area.onLeave("2").subscribe(() => {
+        WA.room.showLayer("above/aboveRoom2-Front");
+    });
+
+    WA.room.area.onEnter("3").subscribe(() => {
+        WA.room.hideLayer("above/aboveRoom3-Front"); 
+    });
+    WA.room.area.onLeave("3").subscribe(() => {
+        WA.room.showLayer("above/aboveRoom3-Front");
+    });
+
+    WA.room.area.onEnter("4").subscribe(() => {
+        WA.room.hideLayer("above/aboveRoom4-Front"); 
+    });
+    WA.room.area.onLeave("4").subscribe(() => {
+        WA.room.showLayer("above/aboveRoom4-Front");
+    });
+
+    WA.room.area.onEnter("5").subscribe(() => {
+        WA.room.hideLayer("above/aboveRoom5-Front"); 
+    });
+    WA.room.area.onLeave("5").subscribe(() => {
+        WA.room.showLayer("above/aboveRoom5-Front");
+    });
+
+    WA.room.area.onEnter("6").subscribe(() => {
+        WA.room.hideLayer("above/aboveRoom6-Front"); 
+    });
+    WA.room.area.onLeave("6").subscribe(() => {
+        WA.room.showLayer("above/aboveRoom6-Front");
     });
 
     /*
