@@ -1,8 +1,10 @@
 /// <reference types="@workadventure/iframe-api-typings/iframe_api" />
 
 console.info("Actions Script started successfully");
+import { ActionMessage } from "@workadventure/iframe-api-typings";
 
 let currentPopup: any = undefined;
+let openCloseMessage: ActionMessage | undefined;
 // let go: boolean = true;
 let countPlayers: number = 0;
 let countPlayersDone: boolean = false;
@@ -11,29 +13,128 @@ let countPlayersDone: boolean = false;
 WA.onInit()
   .then(() => {
     WA.room.area.onEnter("P1").subscribe(() => {
-      WA.nav.goToRoom("#R1");
-      console.log("Portal1 to Room1");
+      openCloseMessage = WA.ui.displayActionMessage({
+        message: "Press 'Spacebar' OR 'Click' \nto 'Hall' room ",
+        callback: () => {
+          WA.nav.goToRoom("#H1");
+          console.log("Portal1 to Hall1");
+        },
+      });
     });
+
     WA.room.area.onEnter("P2").subscribe(() => {
-      WA.nav.goToRoom("#R2");
-      console.log("Portal2 to Room2");
+      openCloseMessage = WA.ui.displayActionMessage({
+        message: "Press 'Spacebar' OR 'Click' \nto 'CPW Hall of Fame' room ",
+        callback: () => {
+          WA.nav.goToRoom("#R2");
+          console.log("Portal2 to Room2");
+        },
+      });
     });
+
     WA.room.area.onEnter("P3").subscribe(() => {
-      WA.nav.goToRoom("#R3");
-      console.log("Portal3 to Room3");
+      openCloseMessage = WA.ui.displayActionMessage({
+        message: "Press 'Spacebar' OR 'Click' \nto 'CPW Pitching 2022' room ",
+        callback: () => {
+          WA.nav.goToRoom("#R3");
+          console.log("Portal3 to Room3");
+        },
+      });
     });
+
     WA.room.area.onEnter("P4").subscribe(() => {
-      WA.nav.goToRoom("#R4");
-      console.log("Portal4 to Room4");
+      openCloseMessage = WA.ui.displayActionMessage({
+        message: "Press 'Spacebar' OR 'Click' \nto 'A-Gadgets' room ",
+        callback: () => {
+          WA.nav.goToRoom("#R4");
+          console.log("Portal4 to Room4");
+        },
+      });
     });
+
     WA.room.area.onEnter("P5").subscribe(() => {
-      WA.nav.goToRoom("#R5");
-      console.log("Portal5 to Room5");
+      openCloseMessage = WA.ui.displayActionMessage({
+        message: "Press 'Spacebar' OR 'Click' \nto 'B-Competitive Game' room ",
+        callback: () => {
+          WA.nav.goToRoom("#R5");
+          console.log("Portal5 to Room5");
+        },
+      });
     });
+
     WA.room.area.onEnter("P6").subscribe(() => {
-      WA.nav.goToRoom("#R6");
-      console.log("Portal6 to Room6");
+      openCloseMessage = WA.ui.displayActionMessage({
+        message: "Press 'Spacebar' OR 'Click' \nto 'C-Self Entertain' room ",
+        callback: () => {
+          WA.nav.goToRoom("#R6");
+          console.log("Portal6 to Room");
+        },
+      });
     });
+
+    WA.room.area.onLeave("P1").subscribe(() => {
+      if (openCloseMessage !== undefined) {
+        openCloseMessage.remove();
+      }
+    });
+    WA.room.area.onLeave("P2").subscribe(() => {
+      if (openCloseMessage !== undefined) {
+        openCloseMessage.remove();
+      }
+    });
+    WA.room.area.onLeave("P3").subscribe(() => {
+      if (openCloseMessage !== undefined) {
+        openCloseMessage.remove();
+      }
+    });
+    WA.room.area.onLeave("P4").subscribe(() => {
+      if (openCloseMessage !== undefined) {
+        openCloseMessage.remove();
+      }
+    });
+    WA.room.area.onLeave("P5").subscribe(() => {
+      if (openCloseMessage !== undefined) {
+        openCloseMessage.remove();
+      }
+    });
+    WA.room.area.onLeave("P6").subscribe(() => {
+      if (openCloseMessage !== undefined) {
+        openCloseMessage.remove();
+      }
+    });
+
+
+    WA.room.area.onEnter("RoomL").subscribe(() => {
+      openCloseMessage = WA.ui.displayActionMessage({
+        message: "Press 'Spacebar' OR 'Click' \nto Right side",
+        callback: () => {
+          WA.nav.goToRoom("#RoomR");
+          console.log("Left to Right side");
+        },
+      });
+    });
+
+    WA.room.area.onEnter("RoomR").subscribe(() => {
+      openCloseMessage = WA.ui.displayActionMessage({
+        message: "Press 'Spacebar' OR 'Click' \nto Left side",
+        callback: () => {
+          WA.nav.goToRoom("#RoomL");
+          console.log("Right to Left side");
+        },
+      });
+    });
+
+    WA.room.area.onLeave("RoomL").subscribe(() => {
+      if (openCloseMessage !== undefined) {
+        openCloseMessage.remove();
+      }
+    });
+    WA.room.area.onLeave("RoomR").subscribe(() => {
+      if (openCloseMessage !== undefined) {
+        openCloseMessage.remove();
+      }
+    });
+
 
     WA.room.onEnterLayer("start").subscribe(() => {
       countPlayers++;
@@ -57,6 +158,7 @@ WA.onInit()
     });
 
 
+    
     // WA.room.area.onEnter("R1").subscribe(() => {
     //   if (go == true) {
     //     WA.nav.goToRoom("#P1");
@@ -77,9 +179,9 @@ WA.onInit()
 
       currentPopup = WA.ui.openPopup(
         "title_pop",
-        "Welcome to Learning Center!! \n Password at " +
+        "Welcome to Learning Center!! \n at " +
           time +
-          " is : 1122 \n NOW HAVING " +
+          " NOW HAVING " +
           WA.state.countPlayers +
           " Players",
         []

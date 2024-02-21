@@ -10,6 +10,7 @@ console.log("Script started successfully");
 
 let check1 = false;
 let check2 = false;
+let check3 = false;
 
 // Waiting for the API to be ready
 WA.onInit()
@@ -29,36 +30,53 @@ WA.onInit()
     console.log("Player ID: ", WA.player.id);
 
     WA.ui.actionBar.addButton({
-      id: "btn-trueeye",
+      id: "btn-poll-a",
       type: "action",
       imageSrc: "https://i.ibb.co/8452NqN/rocket-lunchx.png",
-      toolTip: "Live Graph",
+      toolTip: "A-Gadgets",
       callback: () => {
         if (check1) {
           WA.ui.modal.closeModal();
           check1 = false;
           return;
         }
-        graph();
+        pollA();
         check1 = true;
       },
     });
 
     WA.ui.actionBar.addButton({
-      id: "btn1",
+      id: "btn-poll-b",
       type: "action",
       imageSrc: "https://i.ibb.co/JFXcrqH/computerx.png",
-      toolTip: "Coding Thailand",
+      toolTip: "B-Competitive Game",
       callback: () => {
         if (check2) {
           WA.ui.modal.closeModal();
           check2 = false;
           return;
         }
-        voding();
+        pollB();
         check2 = true;
       },
     });
+
+    WA.ui.actionBar.addButton({
+      id: "btn-poll-c",
+      type: "action",
+      imageSrc: "https://i.ibb.co/8452NqN/rocket-lunchx.png",
+      toolTip: "C-Self-Entertain",
+      callback: () => {
+        if (check3) {
+          WA.ui.modal.closeModal();
+          check3 = false;
+          return;
+        }
+        pollC();
+        check3 = true;
+      },
+    });
+
 
     // The line below bootstraps the Scripting API Extra library that adds a number of advanced properties/features to WorkAdventure
     bootstrapExtra()
@@ -69,7 +87,7 @@ WA.onInit()
   })
   .catch((e) => console.error(e));
 
-const voding = async () => {
+const pollA = async () => {
   WA.ui.modal.closeModal();
   WA.ui.modal.openModal({
     src: "https://www.mentimeter.com/app/presentation/40489e0c11d75fe1de1a865a8551fe09/63utkjxax5jt",
@@ -80,10 +98,21 @@ const voding = async () => {
   });
 };
 
-const graph = async () => {
+const pollB = async () => {
   WA.ui.modal.closeModal();
   WA.ui.modal.openModal({
     src: "https://docs.google.com/spreadsheets/u/2/d/e/2PACX-1vQBiw2aWJH6e9Wha89yPzyqbhGUG238Olmpi_hyy_LlDoVLTWDuPnxqQv3LOT-7pOv8zvsb4XL_owck/pubchart?oid=1708420520&format=interactive",
+    allow: "fullscreen",
+    title: "website",
+    allowApi: true,
+    position: "center",
+  });
+};
+
+const pollC = async () => {
+  WA.ui.modal.closeModal();
+  WA.ui.modal.openModal({
+    src: "https://www.mentimeter.com/app/presentation/40489e0c11d75fe1de1a865a8551fe09/63utkjxax5jt",
     allow: "fullscreen",
     title: "website",
     allowApi: true,

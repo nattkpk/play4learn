@@ -4,8 +4,8 @@ console.log("Funnel script loaded");
 
 const openModalFunnel = () => {
   WA.ui.modal.openModal({
-    title: "GAME",
-    src: "https://games.crazygames.com/th_TH/uno-online/index.html?fbclid=IwAR0g_OWl8AMpTRYi7YiqDBHU42h_8rXE1jpfZsBAJnkLuu9ZM9bYKiN8dgE&v=1.269",
+    title: "Review",
+    src: "https://wordwall.net/play/68723/373/470",
     allow: "fullscreen; clipboard-read; clipboard-write",
     allowApi: true,
     position: "center",
