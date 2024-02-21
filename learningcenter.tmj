@@ -1768,7 +1768,7 @@
                  "y":1754.29175342259
                 }, 
                 {
-                 "height":1058.0793559517,
+                 "height":1073.13026343289,
                  "id":26,
                  "name":"hallZone",
                  "rotation":0,
@@ -2533,7 +2533,7 @@
                         {
                          "name":"playAudio",
                          "type":"string",
-                         "value":"\/fire.mp3"
+                         "value":"\/public\/fire.mp3"
                         }],
                  "rotation":0,
                  "type":"area",
