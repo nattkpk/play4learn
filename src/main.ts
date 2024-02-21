@@ -22,7 +22,7 @@ WA.onInit()
       console.log(`Player ${player.name} is near you`);
     }
 
-    
+
     console.log("Token: ", WA.player.userRoomToken);
     console.log("Player name: ", WA.player.name);
     console.log("Player tags: ", WA.player.tags);
@@ -32,14 +32,14 @@ WA.onInit()
       id: "btn-trueeye",
       type: "action",
       imageSrc: "https://i.ibb.co/8452NqN/rocket-lunchx.png",
-      toolTip: "AI ThaiGen",
+      toolTip: "Live Graph",
       callback: () => {
         if (check1) {
           WA.ui.modal.closeModal();
           check1 = false;
           return;
         }
-        aithaigen();
+        graph();
         check1 = true;
       },
     });
@@ -80,10 +80,10 @@ const codingthailand = async () => {
   });
 };
 
-const aithaigen = async () => {
+const graph = async () => {
   WA.ui.modal.closeModal();
   WA.ui.modal.openModal({
-    src: "https://aithaigen.in.th/home",
+    src: "https://docs.google.com/spreadsheets/u/2/d/e/2PACX-1vQBiw2aWJH6e9Wha89yPzyqbhGUG238Olmpi_hyy_LlDoVLTWDuPnxqQv3LOT-7pOv8zvsb4XL_owck/pubchart?oid=1708420520&format=interactive",
     allow: "fullscreen",
     title: "website",
     allowApi: true,
