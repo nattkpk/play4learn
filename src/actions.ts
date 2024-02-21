@@ -4,6 +4,8 @@ console.info("Actions Script started successfully");
 
 let currentPopup: any = undefined;
 // let go: boolean = true;
+let countPlayers: number = 0;
+let countPlayersDone: boolean = false;
 
 // Waiting for the API to be ready
 WA.onInit()
@@ -33,6 +35,28 @@ WA.onInit()
       console.log("Portal6 to Room6");
     });
 
+    WA.room.onEnterLayer("start").subscribe(() => {
+      countPlayers++;
+      console.log(countPlayers);
+    });
+
+    WA.room.area.onEnter("title_zone").subscribe(() => {
+      if (!countPlayersDone) {
+        (WA.state.countPlayers as number)++;
+        countPlayersDone = true;
+      }
+      console.log(WA.state.countPlayers);
+    });
+
+    WA.room.area.onEnter("checkCountPlayers").subscribe(() => {
+      if (!countPlayersDone) {
+        (WA.state.countPlayers as number)++;
+        countPlayersDone = true;
+      }
+      console.log(WA.state.countPlayers);
+    });
+
+
     // WA.room.area.onEnter("R1").subscribe(() => {
     //   if (go == true) {
     //     WA.nav.goToRoom("#P1");
@@ -53,7 +77,11 @@ WA.onInit()
 
       currentPopup = WA.ui.openPopup(
         "title_pop",
-        "Welcome to Learning Center!! \n Password at " + time +' is : 1122',
+        "Welcome to Learning Center!! \n Password at " +
+          time +
+          " is : 1122 \n NOW HAVING " +
+          WA.state.countPlayers +
+          " Players",
         []
       );
     });

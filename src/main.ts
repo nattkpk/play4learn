@@ -4,34 +4,29 @@ import { bootstrapExtra } from "@workadventure/scripting-api-extra";
 
 import "./roofs";
 import "./actions";
-import "./funnel"
+import "./funnel";
 
 console.log("Script started successfully");
 
 let check1 = false;
 let check2 = false;
 
-
 // Waiting for the API to be ready
 WA.onInit()
   .then(async () => {
     console.log("Scripting API ready");
     await WA.players.configureTracking();
-
     const players = WA.players.list();
     console.log(players);
     for (const player of players) {
-      console.log(`name: ${player.name}`);
-      console.log(`id: ${player.uuid}`);
+      console.log(`Player ${player.name} is near you`);
     }
+
+    
     console.log("Token: ", WA.player.userRoomToken);
     console.log("Player name: ", WA.player.name);
     console.log("Player tags: ", WA.player.tags);
     console.log("Player ID: ", WA.player.id);
-
-
-
-
 
     WA.ui.actionBar.addButton({
       id: "btn-trueeye",

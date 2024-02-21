@@ -1729,7 +1729,7 @@
          "name":"floorLayer",
          "objects":[
                 {
-                 "height":118.459916511207,
+                 "height":227.611724535518,
                  "id":14,
                  "name":"silentZone",
                  "properties":[
@@ -1741,9 +1741,9 @@
                  "rotation":0,
                  "type":"area",
                  "visible":true,
-                 "width":244.8496221006,
-                 "x":4377.68905951666,
-                 "y":1972.76210869088
+                 "width":189.057243523951,
+                 "x":4595.89868419466,
+                 "y":1964.40349490153
                 }, 
                 {
                  "height":58.8740517134536,
@@ -1752,9 +1752,9 @@
                  "rotation":0,
                  "type":"area",
                  "visible":true,
-                 "width":378.29857907363,
-                 "x":4307.70296347841,
-                 "y":1903.80195096214
+                 "width":611.687066402726,
+                 "x":4404.91365071915,
+                 "y":1902.61528904212
                 }, 
                 {
                  "height":132.865842406348,
@@ -1764,8 +1764,8 @@
                  "type":"",
                  "visible":true,
                  "width":236.20594205573,
-                 "x":4382.02476351424,
-                 "y":1760.22506302268
+                 "x":4573.0773326373,
+                 "y":1754.29175342259
                 }, 
                 {
                  "height":1058.0793559517,
@@ -2541,6 +2541,39 @@
                  "width":399.067471201317,
                  "x":5090.51014810752,
                  "y":1959.68184311574
+                }, 
+                {
+                 "height":227.567668064523,
+                 "id":75,
+                 "name":"checkCountPlayers",
+                 "rotation":0,
+                 "type":"area",
+                 "visible":true,
+                 "width":41.9927320005445,
+                 "x":4551.07199670892,
+                 "y":1964.14320328959
+                }, 
+                {
+                 "height":41.3912811269111,
+                 "id":76,
+                 "name":"checkCountPlayers",
+                 "rotation":0,
+                 "type":"area",
+                 "visible":true,
+                 "width":271.405251662806,
+                 "x":4552.30379203704,
+                 "y":2194.25497246643
+                }, 
+                {
+                 "height":226.92440791639,
+                 "id":77,
+                 "name":"checkCountPlayers",
+                 "rotation":0,
+                 "type":"area",
+                 "visible":true,
+                 "width":34.6307408122311,
+                 "x":4788.11414241927,
+                 "y":1964.65237628471
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -2632,6 +2665,40 @@
                  "width":28.4494559081859,
                  "x":4898.35294945111,
                  "y":1979.65781166914
+                }],
+         "opacity":1,
+         "type":"objectgroup",
+         "visible":true,
+         "x":0,
+         "y":0
+        }, 
+        {
+         "draworder":"topdown",
+         "id":103,
+         "name":"variables",
+         "objects":[
+                {
+                 "height":0,
+                 "id":73,
+                 "name":"countPlayers",
+                 "point":true,
+                 "properties":[
+                        {
+                         "name":"default",
+                         "type":"int",
+                         "value":0
+                        }, 
+                        {
+                         "name":"persist",
+                         "type":"bool",
+                         "value":true
+                        }],
+                 "rotation":0,
+                 "type":"variable",
+                 "visible":true,
+                 "width":0,
+                 "x":4746.16946649437,
+                 "y":1933.41948187804
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -5016,8 +5083,8 @@
          "x":0,
          "y":0
         }],
- "nextlayerid":103,
- "nextobjectid":73,
+ "nextlayerid":104,
+ "nextobjectid":78,
  "orientation":"orthogonal",
  "properties":[
         {
