@@ -55,7 +55,7 @@ WA.onInit()
           check2 = false;
           return;
         }
-        codingthailand();
+        voding();
         check2 = true;
       },
     });
@@ -69,10 +69,10 @@ WA.onInit()
   })
   .catch((e) => console.error(e));
 
-const codingthailand = async () => {
+const voding = async () => {
   WA.ui.modal.closeModal();
   WA.ui.modal.openModal({
-    src: "https://codingthailand.org/",
+    src: "https://www.mentimeter.com/app/presentation/40489e0c11d75fe1de1a865a8551fe09/63utkjxax5jt",
     allow: "fullscreen",
     title: "website",
     allowApi: true,
