@@ -2336,7 +2336,7 @@
                         {
                          "name":"openWebsite",
                          "type":"string",
-                         "value":"https:\/\/app.eraser.io\/workspace\/mte2s1AJHZVBgFaa4ZN8"
+                         "value":"https:\/\/www.menti.com\/n46jnxku2z"
                         }, 
                         {
                          "name":"openWebsiteTrigger",
@@ -2468,7 +2468,7 @@
                  "y":1712.42069302099
                 }, 
                 {
-                 "height":112.859931673987,
+                 "height":86.169000524457,
                  "id":64,
                  "name":"doorHall_zone",
                  "properties":[
@@ -2480,7 +2480,7 @@
                         {
                          "name":"autoOpen",
                          "type":"bool",
-                         "value":false
+                         "value":true
                         }, 
                         {
                          "name":"code",
@@ -2501,8 +2501,8 @@
                  "type":"area",
                  "visible":true,
                  "width":90.8979990239141,
-                 "x":4943.75334159386,
-                 "y":1567.37658307155
+                 "x":4447.54466704123,
+                 "y":1635.92374716012
                 }, 
                 {
                  "height":85.2272727272727,
