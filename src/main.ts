@@ -132,7 +132,7 @@ WA.onInit()
     const ggform = async () => {
       WA.ui.modal.closeModal();
       WA.ui.modal.openModal({
-        src: "https://docs.google.com/forms/d/e/1FAIpQLSfssBAyWHjq2h6Mo7YZJKPZQV025nn6saqe4BCsgE20aucU07w/viewform",
+        src: "https://docs.google.com/forms/d/e/1FAIpQLSfsBAyWHjq2h6Mo7YZJKPZQV025nn6saqe4BCsgE20aucU07w/viewform?embedded=true",
         allow: "fullscreen",
         title: "website",
         allowApi: true,
