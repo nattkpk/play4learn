@@ -2363,6 +2363,11 @@
                          "value":"Hall"
                         }, 
                         {
+                         "name":"jitsiTrigger",
+                         "type":"string",
+                         "value":"onaction"
+                        }, 
+                        {
                          "name":"zoom_margin",
                          "type":"float",
                          "value":1
