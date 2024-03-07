@@ -8,6 +8,7 @@ let openCloseMessage: ActionMessage | undefined;
 // let go: boolean = true;
 let countPlayers: number = 0;
 let countPlayersDone: boolean = false;
+let alert: number = 255;
 
 // Waiting for the API to be ready
 WA.onInit()
@@ -103,7 +104,6 @@ WA.onInit()
       }
     });
 
-
     WA.room.area.onEnter("RoomL").subscribe(() => {
       openCloseMessage = WA.ui.displayActionMessage({
         message: "Press 'Spacebar' OR 'Click' \nto Right side",
@@ -135,7 +135,6 @@ WA.onInit()
       }
     });
 
-
     WA.room.onEnterLayer("start").subscribe(() => {
       countPlayers++;
       console.log(countPlayers);
@@ -154,11 +153,11 @@ WA.onInit()
         (WA.state.countPlayers as number)++;
         countPlayersDone = true;
       }
+      console.log("alertVar is " + (WA.state.alertVar));
+      console.log("alert is " +alert);
       console.log(WA.state.countPlayers);
     });
 
-
-    
     // WA.room.area.onEnter("R1").subscribe(() => {
     //   if (go == true) {
     //     WA.nav.goToRoom("#P1");
@@ -171,6 +170,26 @@ WA.onInit()
     //     go = true;
     //   }, 1000);
     // });
+    
+
+    WA.room.area.onLeave("alerttest").subscribe(() => {
+      if (openCloseMessage !== undefined) {
+        openCloseMessage.remove();
+      }
+      alert = (WA.state.alertVar as number);
+      WA.room.hideLayer("alert");
+    });
+
+    WA.room.area.onEnter("alerttest").subscribe(() => {
+      openCloseMessage = WA.ui.displayActionMessage({
+        message: "edit something",
+        callback: () => {
+            (WA.state.alertVar as number)++;
+        },
+      });
+    });
+
+    loop();
 
     WA.room.area.onEnter("title_zone").subscribe(() => {
       const today = new Date();
@@ -191,6 +210,16 @@ WA.onInit()
   })
   .catch((e) => console.error(e));
 
+  const loop = () => {
+    if (WA.state.alertVar !== alert) {
+      WA.room.showLayer("alert");
+    } else {
+      WA.room.hideLayer("alert");
+    }
+    setTimeout(loop, 1500);
+  };
+  
+  
 function closePopup() {
   if (currentPopup !== undefined) {
     currentPopup.close();

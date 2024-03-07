@@ -8,7 +8,7 @@ import "./funnel";
 
 console.log("Script started successfully");
 
-// let check1 = false;
+let check1 = false;
 // let check2 = false;
 let check3 = false;
 
@@ -23,27 +23,48 @@ WA.onInit()
       console.log(`Player ${player.name} is near you`);
     }
 
+    // const url: string =
+    //   "https://docs.google.com/spreadsheets/d/1Pv5pJjORIJGZ2dXBf7CMV2t9FJVycPFe8nDthwjeEkU/gviz/tq?";
+    // fetch(url)
+    //   .then((res) => {
+    //     if (!res.ok) {
+    //       throw new Error(`Failed to fetch: ${res.status} ${res.statusText}`);
+    //     }
+    //     return res.text();
+    //   })
+    //   .then((rep: string) => {
+    //     const data: {
+    //       table: { cols: { id: string; label: string; type: string }[] };
+    //     } = JSON.parse(rep.substr(47).slice(0, -2));
+    //     data.table.cols.forEach((heading) => {
+    //       console.log(heading);
+    //     });
+    //     console.log(data);
+    //   })
+    //   .catch((error) => {
+    //     console.error("Fetch error:", error);
+    //   });
 
     console.log("Token: ", WA.player.userRoomToken);
     console.log("Player name: ", WA.player.name);
     console.log("Player tags: ", WA.player.tags);
     console.log("Player ID: ", WA.player.id);
 
-    // WA.ui.actionBar.addButton({
-    //   id: "btn-poll-a",
-    //   type: "action",
-    //   imageSrc: "https://i.ibb.co/8452NqN/rocket-lunchx.png",
-    //   toolTip: "A-Gadgets",
-    //   callback: () => {
-    //     if (check1) {
-    //       WA.ui.modal.closeModal();
-    //       check1 = false;
-    //       return;
-    //     }
-    //     pollA();
-    //     check1 = true;
-    //   },
-    // });
+    WA.ui.actionBar.addButton({
+      id: "btn-poll-a",
+      type: "action",
+      imageSrc: "https://i.ibb.co/8452NqN/rocket-lunchx.png",
+      toolTip: "MINI MAP",
+      callback: () => {
+        if (check1) {
+          WA.ui.modal.closeModal();
+          check1 = false;
+          return;
+        }
+        pollA();
+        check1 = true;
+      },
+    });
 
     // WA.ui.actionBar.addButton({
     //   id: "btn-poll-b",
@@ -77,18 +98,17 @@ WA.onInit()
     //   },
     // });
 
+    const pollA = async () => {
+      WA.ui.modal.closeModal();
+      WA.ui.modal.openModal({
+        src: "https://i.ibb.co/QXhXY8R/Screenshot-2567-03-01-at-09-37-21.png",
+        allow: "",
+        title: "website",
+        allowApi: true,
+        position: "center",
+      });
+    };
 
-    // const pollA = async () => {
-    //   WA.ui.modal.closeModal();
-    //   WA.ui.modal.openModal({
-    //     src: "https://www.mentimeter.com/app/presentation/40489e0c11d75fe1de1a865a8551fe09/63utkjxax5jt",
-    //     allow: "fullscreen",
-    //     title: "website",
-    //     allowApi: true,
-    //     position: "center",
-    //   });
-    // };
-    
     // const pollB = async () => {
     //   WA.ui.modal.closeModal();
     //   WA.ui.modal.openModal({
@@ -99,7 +119,7 @@ WA.onInit()
     //     position: "center",
     //   });
     // };
-    
+
     // const pollC = async () => {
     //   WA.ui.modal.closeModal();
     //   WA.ui.modal.openModal({
@@ -110,9 +130,8 @@ WA.onInit()
     //     position: "center",
     //   });
     // };
-    
 
-     WA.ui.actionBar.addButton({
+    WA.ui.actionBar.addButton({
       id: "btn-form",
       type: "action",
       imageSrc: "https://i.ibb.co/JFXcrqH/computerx.png",
@@ -128,7 +147,6 @@ WA.onInit()
       },
     });
 
-
     const ggform = async () => {
       WA.ui.modal.closeModal();
       WA.ui.modal.openModal({
@@ -139,8 +157,6 @@ WA.onInit()
         position: "center",
       });
     };
-    
-
 
     // The line below bootstraps the Scripting API Extra library that adds a number of advanced properties/features to WorkAdventure
     bootstrapExtra()
@@ -150,6 +166,5 @@ WA.onInit()
       .catch((e) => console.error(e));
   })
   .catch((e) => console.error(e));
-
 
 export {};
