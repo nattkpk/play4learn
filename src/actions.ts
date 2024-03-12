@@ -229,23 +229,35 @@ WA.onInit()
     //   }, 1000);
     // });
 
+    // WA.room.area.onLeave("alerttest").subscribe(() => {
+    //   if (openCloseMessage !== undefined) {
+    //     openCloseMessage.remove();
+    //   }
+    //   alert = WA.state.alertVar as number;
+    //   WA.room.hideLayer("alert");
+    // });
+
+    // WA.room.area.onEnter("alerttest").subscribe(() => {
+    //   openCloseMessage = WA.ui.displayActionMessage({
+    //     message: "edit something",
+    //     callback: () => {
+    //       (WA.state.alertVar as number)++;
+    //     },
+    //   });
+    // });
+
     WA.room.area.onLeave("alerttest").subscribe(() => {
-      if (openCloseMessage !== undefined) {
-        openCloseMessage.remove();
-      }
       alert = WA.state.alertVar as number;
       WA.room.hideLayer("alert");
     });
 
-    WA.room.area.onEnter("alerttest").subscribe(() => {
-      openCloseMessage = WA.ui.displayActionMessage({
-        message: "edit something",
-        callback: () => {
-          (WA.state.alertVar as number)++;
-        },
-      });
-    });
 
+
+    WA.room.area.onEnter("alerttest").subscribe(() => {
+
+            (WA.state.alertVar as number)++;
+      });
+      
     loop();
 
     WA.room.area.onEnter("title_zone").subscribe(() => {
