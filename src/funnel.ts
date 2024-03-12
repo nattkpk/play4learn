@@ -5,7 +5,7 @@ console.log("Funnel script loaded");
 const openModalFunnel = () => {
   WA.ui.modal.openModal({
     title: "Review",
-    src: "https://wordwall.net/play/68723/373/470",
+    src: "https://padlet.com/embed/tk2fbn34hg15d58j/slideshow?autoplay=1&loop=1",
     allow: "fullscreen; clipboard-read; clipboard-write",
     allowApi: true,
     position: "center",
@@ -15,7 +15,7 @@ const openModalFunnel = () => {
 const test = () => {
   WA.ui.modal.openModal({
     title: "Review",
-    src: "https://www.menti.com/albev5wonruw",
+    src: "https://padlet.com/aonparrot/submission-request/1OL2bZnNAM9lbaK3",
     allow: "fullscreen; clipboard-read; clipboard-write",
     allowApi: true,
     position: "center",
