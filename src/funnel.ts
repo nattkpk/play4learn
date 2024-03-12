@@ -15,7 +15,7 @@ const openModalFunnel = () => {
 const test = () => {
   WA.ui.modal.openModal({
     title: "Review",
-    src: "https://miro.com/app/board/uXjVNl82ay4=/",
+    src: "https://www.menti.com/albev5wonruw",
     allow: "fullscreen; clipboard-read; clipboard-write",
     allowApi: true,
     position: "center",

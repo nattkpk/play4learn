@@ -9,6 +9,12 @@ let openCloseMessage: ActionMessage | undefined;
 let countPlayers: number = 0;
 let countPlayersDone: boolean = false;
 let alert: number = 255;
+let walk1: boolean = true;
+let walk2: boolean = false;
+let walk3: boolean = false;
+let walk4: boolean = false;
+let walk5: boolean = false;
+let walk6: boolean = false;
 
 // Waiting for the API to be ready
 WA.onInit()
@@ -153,9 +159,61 @@ WA.onInit()
         (WA.state.countPlayers as number)++;
         countPlayersDone = true;
       }
-      console.log("alertVar is " + (WA.state.alertVar));
-      console.log("alert is " +alert);
+      console.log("alertVar is " + WA.state.alertVar);
+      console.log("alert is " + alert);
       console.log(WA.state.countPlayers);
+    });
+
+    WA.room.onEnterLayer("walk/1").subscribe(() => {
+      if (walk1) {
+      WA.room.hideLayer("walk/1");
+      WA.room.showLayer("walk/2");
+      walk1 = false;
+      walk2 = true;
+      }
+    });
+
+    WA.room.onEnterLayer("walk/2").subscribe(() => {
+      if (walk2) {
+        WA.room.hideLayer("walk/2");
+        WA.room.showLayer("walk/3");
+        walk2 = false;
+        walk3 = true;
+      }
+    });
+
+    WA.room.onEnterLayer("walk/3").subscribe(() => {
+      if (walk3) {
+        WA.room.hideLayer("walk/3");
+        WA.room.showLayer("walk/4");
+        walk3 = false;
+        walk4 = true;
+      }
+    });
+
+    WA.room.onEnterLayer("walk/4").subscribe(() => {
+      if (walk4) {
+        WA.room.hideLayer("walk/4");
+        WA.room.showLayer("walk/5");
+        walk4 = false;
+        walk5 = true;
+      }
+    });
+
+    WA.room.onEnterLayer("walk/5").subscribe(() => {
+      if (walk5) {
+        WA.room.hideLayer("walk/5");
+        WA.room.showLayer("walk/6");
+        walk5 = false;
+        walk6 = true;
+      }
+    });
+
+    WA.room.onEnterLayer("walk/6").subscribe(() => {
+      if (walk6) {
+        WA.room.hideLayer("walk/6");
+        walk6 = false;
+      }
     });
 
     // WA.room.area.onEnter("R1").subscribe(() => {
@@ -170,13 +228,12 @@ WA.onInit()
     //     go = true;
     //   }, 1000);
     // });
-    
 
     WA.room.area.onLeave("alerttest").subscribe(() => {
       if (openCloseMessage !== undefined) {
         openCloseMessage.remove();
       }
-      alert = (WA.state.alertVar as number);
+      alert = WA.state.alertVar as number;
       WA.room.hideLayer("alert");
     });
 
@@ -184,7 +241,7 @@ WA.onInit()
       openCloseMessage = WA.ui.displayActionMessage({
         message: "edit something",
         callback: () => {
-            (WA.state.alertVar as number)++;
+          (WA.state.alertVar as number)++;
         },
       });
     });
@@ -210,16 +267,15 @@ WA.onInit()
   })
   .catch((e) => console.error(e));
 
-  const loop = () => {
-    if (WA.state.alertVar !== alert) {
-      WA.room.showLayer("alert");
-    } else {
-      WA.room.hideLayer("alert");
-    }
-    setTimeout(loop, 1500);
-  };
-  
-  
+const loop = () => {
+  if (WA.state.alertVar !== alert) {
+    WA.room.showLayer("alert");
+  } else {
+    WA.room.hideLayer("alert");
+  }
+  setTimeout(loop, 1500);
+};
+
 function closePopup() {
   if (currentPopup !== undefined) {
     currentPopup.close();
