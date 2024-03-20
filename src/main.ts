@@ -5,6 +5,7 @@ import { bootstrapExtra } from "@workadventure/scripting-api-extra";
 import "./roofs";
 import "./actions";
 import "./funnel";
+import "./bot";
 
 console.log("Script started successfully");
 

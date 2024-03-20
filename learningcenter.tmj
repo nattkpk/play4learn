@@ -674,7 +674,7 @@
          "name":"ground",
          "opacity":1,
          "type":"group",
-         "visible":false,
+         "visible":true,
          "x":0,
          "y":0
         }, 
@@ -3112,6 +3112,39 @@
                  "width":120.981107059994,
                  "x":4195.39277427909,
                  "y":2016.07557176003
+                }],
+         "opacity":1,
+         "type":"objectgroup",
+         "visible":true,
+         "x":0,
+         "y":0
+        }, 
+        {
+         "draworder":"topdown",
+         "id":121,
+         "name":"bot",
+         "objects":[
+                {
+                 "height":107.878787878788,
+                 "id":110,
+                 "name":"bot_spawn",
+                 "rotation":0,
+                 "type":"area",
+                 "visible":true,
+                 "width":126.060606060606,
+                 "x":3949.45454545455,
+                 "y":2125.09090909091
+                }, 
+                {
+                 "height":4,
+                 "id":111,
+                 "name":"",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":4532,
+                 "y":2460
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -6566,8 +6599,8 @@
          "x":0,
          "y":0
         }],
- "nextlayerid":121,
- "nextobjectid":110,
+ "nextlayerid":122,
+ "nextobjectid":112,
  "orientation":"orthogonal",
  "properties":[
         {
