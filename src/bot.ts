@@ -27,7 +27,7 @@ function timeout() {
     WA.player.moveTo(x, y, 10);
     timeout();
   }, 2000);
-}sa
+}
 timeout();
 
 
