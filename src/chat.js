@@ -7,8 +7,8 @@ console.info("Chat Script started successfully");
 WA.onInit()
   .then(() => {
     WA.room.area.onEnter("chatZone").subscribe(() => {
-      console.log("chatttttt");
-      WA.chat.sendChatMessage("สวัสดีครับมีอะไรให้ช่วย ไหมครับ?");
+  
+      WA.chat.sendChatMessage("สวัสดีครับมีอะไรให้ช่วย ไหมครับ?","นะเรา");
       WA.chat.open();
     });
     WA.room.area.onLeave("chatZone").subscribe(() => {
@@ -20,11 +20,8 @@ const sendChatMessage = (message) => {
 };
 
 const chatCommands = { 
-  "ไม่": () => sendChatMessage("ไม่มี เฉยยย......นะเรา"),
+  "ไม่": () => sendChatMessage(("ไม่มี เฉยยย......นะเรา"),("นะเรา")),
   "มี": () => sendChatMessage("ไม่ช่วยหรอก"),
-  // "ไม่": () => sendChatMessage("ไม่มี เฉยยย......นะเรา"),
-  // "ไม่": () => sendChatMessage("ไม่มี เฉยยย......นะเรา"),
-  // "ไม่": () => sendChatMessage("ไม่มี เฉยยย......นะเรา"),
 };
 
 chatPrompt.Variations1.forEach(variation => {
@@ -42,8 +39,6 @@ WA.chat.onChatMessage((message) => {
     const commandFunction = chatCommands[trimmedMessage];
     commandFunction();
   }
-
-  
 });
 
   })
