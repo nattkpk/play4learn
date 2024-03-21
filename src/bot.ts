@@ -8,16 +8,19 @@ console.info("Bot Script started successfully");
       WA.nav.goToRoom("#");
       setTimeout(() => {
         WA.onInit().then(() => {
-          timeout()
+          botrun()
         });
       }, 1000);
     });
 export {};
+
+
 let xs = 4655;
 let ys = 2094;
 let x = xs;
 let y = ys;
-function timeout() {
+
+function botrun() {
   setTimeout(function () {
     console.log("Start Walking");
     let addx = Math.floor(Math.random() * 200) - 100; 
@@ -25,9 +28,9 @@ function timeout() {
     x = x + addx;
     y = y + addy;
     WA.player.moveTo(x, y, 10);
-    timeout();
+    botrun();
   }, 5000);
 }
-timeout();
+
 
 
