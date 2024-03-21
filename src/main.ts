@@ -6,6 +6,7 @@ import "./roofs";
 import "./actions";
 import "./funnel";
 import "./bot";
+import "./chat";
 
 console.log("Script started successfully");
 
