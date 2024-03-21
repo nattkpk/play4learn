@@ -2,35 +2,27 @@
 
 console.info("Bot Script started successfully");
 
-
-    WA.room.area.onEnter("bot_spawn").subscribe(() => {
-      console.log("Enter"); 
-      WA.nav.goToRoom("#");
-      setTimeout(() => {
-        WA.onInit().then(() => {
-          botrun()
-        });
-      }, 1000);
+WA.room.area.onEnter("bot_spawn").subscribe(() => {
+  WA.nav.goToRoom("#");
+  setTimeout(() => {
+    WA.onInit().then(() => {
+      console.log("Get Script");
+      botrun();
     });
+  }, 1000);
+});
 export {};
 
-
-let xs = 4655;
-let ys = 2094;
-let x = xs;
-let y = ys;
-
+let x = 4655;
+let y = 2094;
 function botrun() {
+  console.log("Start Walking");
   setTimeout(function () {
-    console.log("Start Walking");
-    let addx = Math.floor(Math.random() * 200) - 100; 
-    let addy = Math.floor(Math.random() * 200) - 100; 
-    x = x + addx;
-    y = y + addy;
+    const deltaX = Math.floor(Math.random() * 300) - 150;
+    const deltaY = Math.floor(Math.random() * 300) - 150;
+    x += deltaX;
+    y += deltaY;
     WA.player.moveTo(x, y, 10);
     botrun();
-  }, 5000);
+  }, Math.floor(Math.random() * 3000) + 2000);
 }
-
-
-
