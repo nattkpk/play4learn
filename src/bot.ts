@@ -20,13 +20,13 @@ let y = ys;
 function timeout() {
   setTimeout(function () {
     console.log("Start Walking");
-    let addx = Math.floor(Math.random() * 401) - 200; 
-    let addy = Math.floor(Math.random() * 401) - 200; 
+    let addx = Math.floor(Math.random() * 200) - 100; 
+    let addy = Math.floor(Math.random() * 200) - 100; 
     x = x + addx;
     y = y + addy;
     WA.player.moveTo(x, y, 10);
     timeout();
-  }, 2000);
+  }, 5000);
 }
 timeout();
 

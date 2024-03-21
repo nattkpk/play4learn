@@ -3125,26 +3125,15 @@
          "name":"bot",
          "objects":[
                 {
-                 "height":107.878787878788,
+                 "height":80,
                  "id":110,
                  "name":"bot_spawn",
                  "rotation":0,
                  "type":"area",
                  "visible":true,
-                 "width":126.060606060606,
-                 "x":3949.45454545455,
-                 "y":2125.09090909091
-                }, 
-                {
-                 "height":4,
-                 "id":111,
-                 "name":"",
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":0,
-                 "x":4532,
-                 "y":2460
+                 "width":80,
+                 "x":5600,
+                 "y":170
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -3404,8 +3393,8 @@
                  "type":"website",
                  "visible":true,
                  "width":547.08583435269,
-                 "x":4942.47191795263,
-                 "y":1134.89067498875
+                 "x":4944.30970280928,
+                 "y":1134.58437751264
                 }, 
                 {
                  "height":89.6488220581282,
@@ -6600,7 +6589,7 @@
          "y":0
         }],
  "nextlayerid":122,
- "nextobjectid":112,
+ "nextobjectid":119,
  "orientation":"orthogonal",
  "properties":[
         {
