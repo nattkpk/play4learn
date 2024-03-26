@@ -23,7 +23,7 @@ WA.onInit()
                 callback: () => {
                   explored = true;
                   WA.state[areaId] = true;
-                 
+                   
                 },
               });
             } else {

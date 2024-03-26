@@ -51,6 +51,41 @@ WA.onInit()
       WA.chat.close();
     });
 
+    WA.room.area.onEnter("chatZone1a").subscribe(() => {
+      chat = true;
+      WA.chat.sendChatMessage("สวัสดีครับ มีอะไรให้ช่วยไหมครับ?", "เอไอ");
+      WA.chat.open();
+    });
+
+    WA.room.area.onEnter("chatZone2a").subscribe(() => {
+      chat = true;
+      WA.chat.sendChatMessage("สวัสดีครับ มีอะไรให้ช่วยไหมครับ?", "เอไอ");
+      WA.chat.open();
+    });
+
+    WA.room.area.onLeave("chatZone1a").subscribe(() => {
+      chat = false;
+      WA.chat.close();
+    });
+
+    WA.room.area.onLeave("chatZone2a").subscribe(() => {
+      chat = false;
+      WA.chat.close();
+    });
+
+    WA.room.area.onEnter("chatZone5").subscribe(() => {
+      chat = true;
+      WA.chat.sendChatMessage("สวัสดีครับ มีอะไรให้ช่วยไหมครับ?", "เอไอ");
+      WA.chat.open();
+    });
+
+    WA.room.area.onLeave("chatZone5").subscribe(() => {
+      chat = false;
+      WA.chat.close();
+    });
+
+
+
     WA.chat.onChatMessage((message) => {
       if (chat) {
         WA.chat.startTyping({ scope: "local", author: "เอไอ" });
