@@ -27,8 +27,9 @@ WA.onInit()
 
     const askQuestion = () => {
       if (currentQuestionIndex >= questions.length) {
+        WA.room.hideLayer("logic/doorLock");
         sendChatMessage(
-          `Exam completed! Your score is ${score} out of ${questions.length}`,
+          "การสอบสิ้นสุดแล้ว ออกไปสำรวจกันเถอะ",
           "ผู้ทดสอบความรู้"
         );
         return;
@@ -47,7 +48,7 @@ WA.onInit()
             "การสอบสิ้นสุดแล้ว ออกไปสำรวจกันเถอะ",
             "ผู้ทดสอบความรู้"
           );
-          WA.room.hideLayer("logic/doorLock");
+        
         }
       }
     });
