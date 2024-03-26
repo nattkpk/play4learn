@@ -7,7 +7,8 @@ import "./actions";
 import "./funnel";
 import "./bot";
 import "./chat";
-// import "./quiz";
+import "./quiz2";
+import "./boardgame"
 
 
 console.log("Script started successfully");

@@ -5,6 +5,7 @@ const genAI = new GoogleGenerativeAI("AIzaSyCjSWKop9h4C9iZHHaTVwhRA340Awbj0gY");
 
 
 async function run(prompt) {
+  console.log("asdadas");
   const model = genAI.getGenerativeModel({ model: "gemini-pro" });
 
   const result = await model.generateContent(prompt + " **ตอบไม่เกิน150ตัวอักษร");

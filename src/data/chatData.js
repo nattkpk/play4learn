@@ -1,28 +1,3 @@
-const chatPrompt = {
-  Variations1: [
-    "ไม่",
-    "ไม่มี",
-    "ไม่มีครับ",
-    "ไม่ครับ",
-    "ไม่มีคับ",
-    "ไม่คะ",
-    "ไม่มีคะ",
-    "ไม่มี",
-    "ไม่ค่า",
-    "ไม่มีค่า",
-  ],
-  Variations2: [
-    "มี",
-    "มีครับ",
-    "มีคับ",
-    "มีคะ",
-    "มีค่า",
-    "ครับ",
-    "คับ",
-    "คะ",
-    "ค่า",
-  ],
-};
 const questions = [
   //answerType:["any":can answer any one correct answer,"all":must answer all correct answers]
   // answer: ["Red", "White", "Blue"] :Array of correct answers
@@ -76,4 +51,30 @@ const questions = [
 
 const aiChatBot = ["hi1", "hi2", "hi4", "hi3", "hi5", "hi6"];
 
-export { chatPrompt, aiChatBot, questions };
+const chatPrompt = {
+  Variations1: [
+    "ไม่",
+    "ไม่มี",
+    "ไม่มีครับ",
+    "ไม่ครับ",
+    "ไม่มีคับ",
+    "ไม่คะ",
+    "ไม่มีคะ",
+    "ไม่มี",
+    "ไม่ค่า",
+    "ไม่มีค่า",
+  ],
+  Variations2: [
+    "มี",
+    "มีครับ",
+    "มีคับ",
+    "มีคะ",
+    "มีค่า",
+    "ครับ",
+    "คับ",
+    "คะ",
+    "ค่า",
+  ],
+};
+
+export { questions };
