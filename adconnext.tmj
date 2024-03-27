@@ -7622,6 +7622,12 @@
                          "height":91.3333333333333,
                          "id":124,
                          "name":"chatZone1",
+                         "properties":[
+                                {
+                                 "name":"silent",
+                                 "type":"bool",
+                                 "value":true
+                                }],
                          "rotation":0,
                          "type":"area",
                          "visible":true,
@@ -7634,6 +7640,12 @@
                          "height":95.3333333333333,
                          "id":125,
                          "name":"chatZone2",
+                         "properties":[
+                                {
+                                 "name":"silent",
+                                 "type":"bool",
+                                 "value":true
+                                }],
                          "rotation":0,
                          "type":"area",
                          "visible":true,
@@ -7646,6 +7658,12 @@
                          "height":95.3333,
                          "id":126,
                          "name":"chatZone3",
+                         "properties":[
+                                {
+                                 "name":"silent",
+                                 "type":"bool",
+                                 "value":true
+                                }],
                          "rotation":0,
                          "type":"area",
                          "visible":true,
@@ -7658,6 +7676,12 @@
                          "height":95.3333,
                          "id":127,
                          "name":"chatZone4",
+                         "properties":[
+                                {
+                                 "name":"silent",
+                                 "type":"bool",
+                                 "value":true
+                                }],
                          "rotation":0,
                          "type":"area",
                          "visible":true,
@@ -7670,6 +7694,12 @@
                          "height":95.3333,
                          "id":128,
                          "name":"chatZone5",
+                         "properties":[
+                                {
+                                 "name":"silent",
+                                 "type":"bool",
+                                 "value":true
+                                }],
                          "rotation":0,
                          "type":"area",
                          "visible":true,
@@ -7850,68 +7880,92 @@
                          "rotation":0,
                          "type":"area",
                          "visible":true,
-                         "width":287.559073762838,
-                         "x":2328.40966099496,
-                         "y":1825.84164074413
+                         "width":311.008231724893,
+                         "x":1959.61835850082,
+                         "y":666.174192438865
                         }, 
                         {
-                         "height":170.738,
+                         "height":164.342775101258,
                          "id":187,
                          "name":"sentPer2",
                          "rotation":0,
                          "type":"area",
                          "visible":true,
-                         "width":261.91,
-                         "x":2009.91209798831,
-                         "y":1817.34584274223
+                         "width":315.203540822852,
+                         "x":2310.4876682292,
+                         "y":659.810136069879
                         }, 
                         {
                          "ellipse":true,
                          "height":129.047587852883,
                          "id":188,
                          "name":"chatZone6",
+                         "properties":[
+                                {
+                                 "name":"silent",
+                                 "type":"bool",
+                                 "value":true
+                                }],
                          "rotation":0,
                          "type":"area",
                          "visible":true,
                          "width":93.8447716905237,
-                         "x":1954.46315718227,
-                         "y":898.942602618941
+                         "x":1952.33141554935,
+                         "y":905.337827517683
                         }, 
                         {
                          "ellipse":true,
                          "height":134.733820075496,
                          "id":189,
                          "name":"chatZone7",
+                         "properties":[
+                                {
+                                 "name":"silent",
+                                 "type":"bool",
+                                 "value":true
+                                }],
                          "rotation":1.02426840454023,
                          "type":"area",
                          "visible":true,
-                         "width":92.1467,
-                         "x":2301.49808180051,
-                         "y":895.250345125441
+                         "width":86.928560805251,
+                         "x":2305.76156506634,
+                         "y":899.513828391269
                         }, 
                         {
                          "ellipse":true,
                          "height":133.596747600648,
                          "id":190,
                          "name":"chatZone8",
+                         "properties":[
+                                {
+                                 "name":"silent",
+                                 "type":"bool",
+                                 "value":true
+                                }],
                          "rotation":0,
                          "type":"area",
                          "visible":true,
                          "width":102.118032419294,
-                         "x":1975.20324574468,
-                         "y":1629.87048755597
+                         "x":1969.6936038714,
+                         "y":1635.38012942924
                         }, 
                         {
                          "ellipse":true,
                          "height":134.84316415306,
                          "id":191,
                          "name":"chatZone9",
+                         "properties":[
+                                {
+                                 "name":"silent",
+                                 "type":"bool",
+                                 "value":true
+                                }],
                          "rotation":0,
                          "type":"area",
                          "visible":true,
                          "width":99.6251993144706,
-                         "x":2300.13403587393,
-                         "y":1632.43835879463
+                         "x":2298.29748858284,
+                         "y":1636.11145337681
                         }],
                  "opacity":1,
                  "type":"objectgroup",
