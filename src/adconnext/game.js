@@ -10,7 +10,7 @@ WA.onInit()
   .then(() => {
     let openCloseMessage;
 
-    if (explored == false) {
+    if (!explored) {
       exploreZones.forEach((zone) => {
         const zoneName = zone.zone;
         zone.value.forEach((areaIndex, index) => {
@@ -26,7 +26,7 @@ WA.onInit()
                   explored = true;
                   WA.state[areaId] = true;
                   WA.chat.open();
-                  WA.chat.sendChatMessage("พบว่าในพื้นที่แห่งนี้"+areaValue, "ตัวเอง");
+                  WA.chat.sendChatMessage("พบว่าในพื้นที่แห่งนี้ "+areaValue, "ตัวเอง");
                 },
               });
             } else {

@@ -7,8 +7,8 @@ const questions = [
     answer: [
       "Partsperbillion",
       "Partperbillion",
-      "Parts Per Billion",
-      "Part Per Billion",
+      "PartsPerBillion",
+      "PartPerBillion",
 
     ],
   },
@@ -37,6 +37,7 @@ const questions = [
       "ปาก",
       "ปอด",
       "ทางเดินอาหาร",
+      "ทางเดินหายใจ",
       "การรับประทานอาหารที่ปนเปื้อน",
       "การดื่มน้ำที่ปนเปื้อน",
     ],
