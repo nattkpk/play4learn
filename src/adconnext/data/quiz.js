@@ -3,8 +3,8 @@ const questions = [
   // answer: ["Red", "White", "Blue"] :Array of correct answers
   {
     question: "PPB ย่อมาจากคำภาษาอังกฤษว่า",
-    answerType: "all",
-    answer: ["Part", "Per", " Billion"],
+    answerType: "any",
+    answer: ["Parts", "per", "Billion"],
   },
   {
     question:
