@@ -5,12 +5,12 @@ import { exploreZones } from "./data/game";
 console.log("BoradGame Run");
 
 let explored = false;
-let map = 255;
+let map = -99;
 
 WA.onInit()
   .then(() => {
     let openCloseMessage;
-    map = WA.state.map;
+    loop();
     if (!explored) {
       exploreZones.forEach((zone) => {
         const zoneName = zone.zone;
@@ -52,8 +52,6 @@ WA.onInit()
         });
       });
     }
-
-    loop();
   })
   .catch((e) => console.error(e));
 
@@ -64,7 +62,6 @@ const loop = () => {
       zone.value.forEach((areaIndex, index) => {
         const areaId = `${zoneName}${index + 1}`;
         const explore = `explore/${zoneName}/${index + 1}`;
-        console.log(explore);
         if (WA.state[areaId]) {
           WA.room.showLayer(explore);
         }
