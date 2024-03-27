@@ -9,12 +9,14 @@ let explored = false;
 WA.onInit()
   .then(() => {
     let openCloseMessage;
+
     if (explored == false) {
       exploreZones.forEach((zone) => {
         const zoneName = zone.zone;
         zone.value.forEach((areaIndex, index) => {
           const areaId = `${zoneName}${index + 1}`;
           const areaValue = zone.value[index];
+          const explore = `explore/${zoneName}/${index + 1}`;
           WA.room.area.onEnter(areaId + "f").subscribe(() => {
             if (!WA.state[areaId]) {
               openCloseMessage = WA.ui.displayActionMessage({
@@ -23,7 +25,6 @@ WA.onInit()
                 callback: () => {
                   explored = true;
                   WA.state[areaId] = true;
-                   
                 },
               });
             } else {
@@ -43,7 +44,23 @@ WA.onInit()
         });
       });
     }
+
+    // loop();
   })
   .catch((e) => console.error(e));
+
+const loop = () => {
+  exploreZones.forEach((zone) => {
+    const zoneName = zone.zone;
+    zone.value.forEach((areaIndex, index) => {
+      const areaId = `${zoneName}${index + 1}`;
+      const explore = `explore/${zoneName}/${index + 1}`;
+      if (WA.state[areaId]) {
+        WA.room.showLayer(explore);
+      }
+      setTimeout(loop, 3000);
+    });
+  });
+};
 
 export {};

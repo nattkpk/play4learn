@@ -8,7 +8,7 @@ import './chat'
 import './game'
 import './quiz'
 import './board'
-
+import './walls'
 
 WA.onInit()
   .then(async () => {
