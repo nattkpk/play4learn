@@ -84,6 +84,51 @@ WA.onInit()
       WA.chat.close();
     });
 
+    WA.room.area.onEnter("chatZone6").subscribe(() => {
+      chat = true;
+      WA.chat.sendChatMessage("สวัสดีครับ มีอะไรให้ช่วยไหมครับ?", "เอไอ");
+      WA.chat.open();
+    });
+
+    WA.room.area.onLeave("chatZone6").subscribe(() => {
+      chat = false;
+      WA.chat.close();
+    });
+
+    WA.room.area.onEnter("chatZone7").subscribe(() => {
+      chat = true;
+      WA.chat.sendChatMessage("สวัสดีครับ มีอะไรให้ช่วยไหมครับ?", "เอไอ");
+      WA.chat.open();
+    });
+
+    WA.room.area.onLeave("chatZone7").subscribe(() => {
+      chat = false;
+      WA.chat.close();
+    });
+
+    WA.room.area.onEnter("chatZone8").subscribe(() => {
+      chat = true;
+      WA.chat.sendChatMessage("สวัสดีครับ มีอะไรให้ช่วยไหมครับ?", "เอไอ");
+      WA.chat.open();
+    });
+
+    WA.room.area.onLeave("chatZone8").subscribe(() => {
+      chat = false;
+      WA.chat.close();
+    });
+
+    WA.room.area.onEnter("chatZone9").subscribe(() => {
+      chat = true;
+      WA.chat.sendChatMessage("สวัสดีครับ มีอะไรให้ช่วยไหมครับ?", "เอไอ");
+      WA.chat.open();
+    });
+
+    WA.room.area.onLeave("chatZone9").subscribe(() => {
+      chat = false;
+      WA.chat.close();
+    });
+
+
 
 
     WA.chat.onChatMessage((message) => {

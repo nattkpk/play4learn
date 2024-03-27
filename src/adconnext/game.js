@@ -30,7 +30,7 @@ WA.onInit()
 
                   WA.chat.open();
                   WA.chat.sendChatMessage(
-                    "พบว่าในพื้นที่แห่งนี้ " + areaValue,
+                    `บริเวณ ${areaId} ` + areaValue,
                     "ตัวเอง"
                   );
                 },
