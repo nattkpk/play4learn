@@ -5,11 +5,12 @@ import { exploreZones } from "./data/game";
 console.log("BoradGame Run");
 
 let explored = false;
+let map = 255;
 
 WA.onInit()
   .then(() => {
     let openCloseMessage;
-
+    map = WA.state.map;
     if (!explored) {
       exploreZones.forEach((zone) => {
         const zoneName = zone.zone;
@@ -20,18 +21,23 @@ WA.onInit()
           WA.room.area.onEnter(areaId + "f").subscribe(() => {
             if (!WA.state[areaId]) {
               openCloseMessage = WA.ui.displayActionMessage({
-                message: `${areaId} ต้องการสำรวจพื้นที่นี้
+                message: ` ต้องการสำรวจพื้นที่ ${areaId} นี้   
                 [กดเพื่อตรวจสอบ]`,
                 callback: () => {
                   explored = true;
                   WA.state[areaId] = true;
+                  WA.state.map++;
+
                   WA.chat.open();
-                  WA.chat.sendChatMessage("พบว่าในพื้นที่แห่งนี้ "+areaValue, "ตัวเอง");
+                  WA.chat.sendChatMessage(
+                    "พบว่าในพื้นที่แห่งนี้ " + areaValue,
+                    "ตัวเอง"
+                  );
                 },
               });
             } else {
               openCloseMessage = WA.ui.displayActionMessage({
-                message: `${areaId} พื้นที่นี้ถูกสำรวจไปแล้ว  
+                message: `พื้นที่ ${areaId} นี้ถูกสำรวจไปแล้ว     
               [กดเพื่อออก]`,
                 callback: () => {
                   openCloseMessage.remove();
@@ -52,17 +58,20 @@ WA.onInit()
   .catch((e) => console.error(e));
 
 const loop = () => {
-  exploreZones.forEach((zone) => {
-    const zoneName = zone.zone;
-    zone.value.forEach((areaIndex, index) => {
-      const areaId = `${zoneName}${index + 1}`;
-      const explore = `explore/${zoneName}/${index + 1}`;
-      console.log(explore);
-      if (WA.state[areaId]) {
-        WA.room.showLayer(explore);
-      }
+  if (WA.state.map !== map) {
+    exploreZones.forEach((zone) => {
+      const zoneName = zone.zone;
+      zone.value.forEach((areaIndex, index) => {
+        const areaId = `${zoneName}${index + 1}`;
+        const explore = `explore/${zoneName}/${index + 1}`;
+        console.log(explore);
+        if (WA.state[areaId]) {
+          WA.room.showLayer(explore);
+        }
+      });
     });
-  });
+    map = WA.state.map;
+  }
   setTimeout(loop, 10000);
 };
 
