@@ -45,7 +45,7 @@ WA.onInit()
       });
     }
 
-    // loop();
+    loop();
   })
   .catch((e) => console.error(e));
 
@@ -55,12 +55,13 @@ const loop = () => {
     zone.value.forEach((areaIndex, index) => {
       const areaId = `${zoneName}${index + 1}`;
       const explore = `explore/${zoneName}/${index + 1}`;
+      console.log(explore);
       if (WA.state[areaId]) {
         WA.room.showLayer(explore);
       }
-      setTimeout(loop, 3000);
     });
   });
+  setTimeout(loop, 10000);
 };
 
 export {};
