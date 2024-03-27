@@ -10,10 +10,15 @@ questions.sort(() => Math.random() - 0.5);
 WA.onInit()
   .then(() => {
     WA.room.area.onEnter("quizZone").subscribe(() => {
-      WA.chat.sendChatMessage("ยินดีเข้าสู่การทดสอบนะ นักสำรวจ", "ผู้ทดสอบความรู้");
-      quiz = true;
-      WA.chat.open();
-      askQuestion();
+      if (currentQuestionIndex <= questions.length) {
+        WA.chat.sendChatMessage(
+          "ยินดีเข้าสู่การทดสอบนะ นักสำรวจ",
+          "ผู้ทดสอบความรู้"
+        );
+        quiz = true;
+        WA.chat.open();
+        askQuestion();
+      }
     });
 
     WA.room.area.onLeave("quizZone").subscribe(() => {
@@ -27,12 +32,18 @@ WA.onInit()
 
     const askQuestion = () => {
       if (currentQuestionIndex >= questions.length) {
-        WA.room.hideLayer("logic/doorLock");
         sendChatMessage(
-          "การสอบสิ้นสุดแล้ว ออกไปสำรวจกันเถอะ",
+          "การทดสอบความรู้พื้นฐานสิ้นสุดแล้ว คุณพร้อมเป็นนักสืบเสาะภัยพิบัติแล้ว ออกไปสำรวจกันเถอะ จากแผนที่ คุณคิดว่าตำแหน่งที่เกิดการปนเปื้อนสารหนู อยู่ที่ตำแหน่งไหนในแผนที่",
           "ผู้ทดสอบความรู้"
         );
-        return;
+        WA.chat.onChatMessage(() => {
+          WA.room.hideLayer("logic/doorLock");
+          sendChatMessage(
+            "ประตูห้องสืบสวนเปิดแล้ว คุณมีภาระกิจสืบหาต้นตอจุดรั่วไหลของสารหนู เข้าสู่พื้นที่พื้นที่ปนเปื้อนสารหนู ได้เลย",
+            "ผู้ทดสอบความรู้"
+          );
+          return;
+        });
       }
 
       const currentQuestion = questions[currentQuestionIndex];
@@ -48,7 +59,6 @@ WA.onInit()
             "การสอบสิ้นสุดแล้ว ออกไปสำรวจกันเถอะ",
             "ผู้ทดสอบความรู้"
           );
-        
         }
       }
     });

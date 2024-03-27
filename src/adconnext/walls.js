@@ -33,7 +33,7 @@ WA.onInit()
       WA.room.hideLayer("above/wall/wall_room_2");
       WA.room.hideLayer("above/wall/sign_room_2");
     });
-    WA.room.area.onLeave("room1").subscribe(() => {
+    WA.room.area.onLeave("room2").subscribe(() => {
       WA.room.showLayer("above/wall/wall_room_2");
       WA.room.showLayer("above/wall/sign_room_2");
     });

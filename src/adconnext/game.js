@@ -21,16 +21,18 @@ WA.onInit()
             if (!WA.state[areaId]) {
               openCloseMessage = WA.ui.displayActionMessage({
                 message: `${areaId} ต้องการสำรวจพื้นที่นี้
-                [Click]`,
+                [กดเพื่อตรวจสอบ]`,
                 callback: () => {
                   explored = true;
                   WA.state[areaId] = true;
+                  WA.chat.open();
+                  WA.chat.sendChatMessage("พบว่าในพื้นที่แห่งนี้"+areaValue, "ตัวเอง");
                 },
               });
             } else {
               openCloseMessage = WA.ui.displayActionMessage({
                 message: `${areaId} พื้นที่นี้ถูกสำรวจไปแล้ว  
-              [Click]`,
+              [กดเพื่อออก]`,
                 callback: () => {
                   openCloseMessage.remove();
                 },

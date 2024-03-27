@@ -3,8 +3,14 @@ const questions = [
   // answer: ["Red", "White", "Blue"] :Array of correct answers
   {
     question: "PPB ย่อมาจากคำภาษาอังกฤษว่า",
-    answerType: "all",
-    answer: ["Parts", "per", "Billion"],
+    answerType: "any",
+    answer: [
+      "Partsperbillion",
+      "Partperbillion",
+      "Parts Per Billion",
+      "Part Per Billion",
+
+    ],
   },
   {
     question:
@@ -13,10 +19,11 @@ const questions = [
     answer: [
       "1 PPM",
       "PPM",
-      "Ppm",
+      "1ppm",
       "หนึ่งในล้านส่วน",
       "หนึ่งส่วนในล้านส่วน",
       "1/ล้าน",
+      "1/1000000",
     ],
   },
   {
@@ -28,6 +35,8 @@ const questions = [
       "การหายใจ",
       "จมูก",
       "ปาก",
+      "ปอด",
+      "ทางเดินอาหาร",
       "การรับประทานอาหารที่ปนเปื้อน",
       "การดื่มน้ำที่ปนเปื้อน",
     ],
@@ -39,7 +48,8 @@ const questions = [
       "การชะล้างของหิน",
       "ภูเขาไฟ",
       "เปลือกโลก",
-      "การทำแหมืองเร่",
+      "การทำเหมืองแร่",
+      "เหมืองแร่",
       "โรงงานอุตสาหกรรม",
       "การใช้ปุ๋ยและยาฆ่าแมลง",
       "การผสมในอาหาร",
