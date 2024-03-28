@@ -21,7 +21,7 @@ WA.onInit()
         },
       });
     });
-
+    
     if (!explored) {
       exploreZones.forEach((zone) => {
         const zoneName = zone.zone;
@@ -36,6 +36,7 @@ WA.onInit()
                 [กดเพื่อตรวจสอบ]`,
                 callback: () => {
                   explored = true;
+                  console.log(explored);
                   WA.state[areaId] = true;
                   WA.state.map++;
 
@@ -56,7 +57,7 @@ WA.onInit()
               });
             }
           });
-
+          console.log("sadasd :",explored);
           WA.room.area.onLeave(areaId + "f").subscribe(() => {
             openCloseMessage.remove();
           });

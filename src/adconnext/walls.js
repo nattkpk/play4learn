@@ -88,6 +88,13 @@ WA.onInit()
     WA.room.area.onLeave("hallRoom").subscribe(() => {
       WA.room.hideLayer("focus/room1");
     });
+
+    WA.room.area.onEnter("hallRoom2").subscribe(() => {
+      WA.room.showLayer("focus/room0");
+    });
+    WA.room.area.onLeave("hallRoom2").subscribe(() => {
+      WA.room.hideLayer("focus/room0");
+    });
   
     WA.room.area.onEnter("openadmin").subscribe(() => {
       WA.room.hideLayer("above/wall/admin");

@@ -2745,7 +2745,7 @@
                          "name":"admin",
                          "opacity":1,
                          "type":"tilelayer",
-                         "visible":false,
+                         "visible":true,
                          "width":83,
                          "x":0,
                          "y":0
@@ -7707,26 +7707,15 @@
                          "y":2251.69450463892
                         }, 
                         {
-                         "height":50.3825531421808,
+                         "height":75.4766560280027,
                          "id":198,
                          "name":"reset",
                          "rotation":0,
                          "type":"area",
                          "visible":true,
-                         "width":54.562507028862,
-                         "x":2179.24415754282,
+                         "width":100.568362319535,
+                         "x":2133.23830225214,
                          "y":2091.83807651185
-                        }, 
-                        {
-                         "height":49.4974699703494,
-                         "id":199,
-                         "name":"eledoor",
-                         "rotation":0,
-                         "type":"area",
-                         "visible":true,
-                         "width":50.6509973967434,
-                         "x":2023.74882435223,
-                         "y":2093.55757409287
                         }, 
                         {
                          "height":68.4931506849316,
@@ -7738,17 +7727,6 @@
                          "width":24.7879973907375,
                          "x":2146.11872146119,
                          "y":2237.44292237443
-                        }, 
-                        {
-                         "height":47.4321,
-                         "id":202,
-                         "name":"backadmin",
-                         "rotation":0,
-                         "type":"area",
-                         "visible":true,
-                         "width":49.102,
-                         "x":2022.74594841741,
-                         "y":2247.15708471369
                         }],
                  "opacity":1,
                  "type":"objectgroup",
