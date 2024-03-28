@@ -10,6 +10,8 @@ import './quiz'
 import './board'
 import './walls'
 
+let check3 = false;
+
 WA.onInit()
   .then(async () => {
     console.log("Scripting API ready");
@@ -24,6 +26,33 @@ WA.onInit()
     console.log("Player name: ", WA.player.name);
     console.log("Player tags: ", WA.player.tags);
     console.log("Player ID: ", WA.player.id);
+
+    WA.ui.actionBar.addButton({
+      id: "btn-form",
+      type: "action",
+      imageSrc: "https://i.ibb.co/JFXcrqH/computerx.png",
+      toolTip: "Questionnaire",
+      callback: () => {
+        if (check3) {
+          WA.ui.modal.closeModal();
+          check3 = false;
+          return;
+        }
+        ggform();
+        check3 = true;
+      },
+    });
+
+    const ggform = async () => {
+      WA.ui.modal.closeModal();
+      WA.ui.modal.openModal({
+        src: "https://forms.office.com/Pages/ResponsePage.aspx?id=-LMev9IZnUCwxU6AyUP9UnHcR20-rXVHlnMm8B4tnvxUMllUNENDTE8wWDYzTENVWkVPSFRCWVdJQy4u",
+        allow: "fullscreen",
+        title: "website",
+        allowApi: true,
+        position: "center",
+      });
+    };
 
     bootstrapExtra()
       .then(() => {

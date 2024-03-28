@@ -74,23 +74,23 @@ WA.onInit().then(() => {
       WA.ui.modal.closeModal();
     });
   });
-  WA.room.area.onEnter("board1-Room").subscribe(() => {
+  WA.room.area.onEnter("board1-room1").subscribe(() => {
     board1();
-    WA.room.area.onLeave("board1-Room").subscribe(() => {
+    WA.room.area.onLeave("board1-room1").subscribe(() => {
       WA.ui.modal.closeModal();
     });
   });
 
-  WA.room.area.onEnter("board2-Room").subscribe(() => {
+  WA.room.area.onEnter("board2-room1").subscribe(() => {
     board2();
-    WA.room.area.onLeave("board2-Room").subscribe(() => {
+    WA.room.area.onLeave("board2-room1").subscribe(() => {
       WA.ui.modal.closeModal();
     });
   });
 
-  WA.room.area.onEnter("board3-Room").subscribe(() => {
+  WA.room.area.onEnter("board3-room1").subscribe(() => {
     board3();
-    WA.room.area.onLeave("board3-Room").subscribe(() => {
+    WA.room.area.onLeave("board3-room1").subscribe(() => {
       WA.ui.modal.closeModal();
     });
   });
