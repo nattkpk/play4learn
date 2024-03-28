@@ -32,6 +32,16 @@ const board3 = () => {
   });
 };
 
+const board4 = () => {
+  WA.ui.modal.openModal({
+    title: "Review",
+    src: "https://heyzine.com/flip-book/ea48b35953.html",
+    allow: "fullscreen; clipboard-read; clipboard-write",
+    allowApi: true,
+    position: "center",
+  });
+};
+
 WA.onInit().then(() => {
   WA.room.area.onEnter("board1-Hallway").subscribe(() => {
     board1();

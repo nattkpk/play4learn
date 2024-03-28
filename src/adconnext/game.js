@@ -12,20 +12,15 @@ WA.onInit()
     let openCloseMessage;
     loop();
 
-    WA.room.area.onEnter(areaId + "f").subscribe(() => {
-      if (!WA.state[areaId]) {
-        openCloseMessage = WA.ui.displayActionMessage({
-          message: ` reset   
+    WA.room.area.onEnter("reset").subscribe(() => {
+      openCloseMessage = WA.ui.displayActionMessage({
+        message: ` reset   
           [กดเพื่อตรวจสอบ]`,
-          callback: () => {
-            reset();
-          }
-        });
-            }
-        });
-
-
-
+        callback: () => {
+          reset();
+        },
+      });
+    });
 
     if (!explored) {
       exploreZones.forEach((zone) => {
@@ -88,15 +83,14 @@ const loop = () => {
   setTimeout(loop, 10000);
 };
 
-
 const reset = () => {
   exploreZones.forEach((zone) => {
     const zoneName = zone.zone;
     zone.value.forEach((areaIndex, index) => {
       const areaId = `${zoneName}${index + 1}`;
       WA.state[areaId] = false;
+    });
   });
-})
 };
 
 export {};
