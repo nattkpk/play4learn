@@ -9,6 +9,8 @@ let currentQuestionIndex = 0;
 questions.sort(() => Math.random() - 0.5);
 WA.onInit()
   .then(() => {
+    let openCloseMessage;
+
     WA.room.area.onEnter("quizZone").subscribe(() => {
       if (currentQuestionIndex <= questions.length) {
         WA.chat.sendChatMessage(
@@ -18,6 +20,7 @@ WA.onInit()
         quiz = true;
         WA.chat.open();
         askQuestion();
+        loopEmerdoor();
       }
     });
 
@@ -31,23 +34,30 @@ WA.onInit()
     };
 
     const askQuestion = () => {
-      if (currentQuestionIndex >= questions.length) {
+      if (WA.state.emerdoor) {
         sendChatMessage(
-          "การทดสอบความรู้พื้นฐานสิ้นสุดแล้ว คุณพร้อมเป็นนักสืบเสาะภัยพิบัติแล้ว ออกไปสำรวจกันเถอะ จากแผนที่ คุณคิดว่าตำแหน่งที่เกิดการปนเปื้อนสารหนู อยู่ที่ตำแหน่งไหนในแผนที่",
+          "การทดสอบความรู้พื้นฐานสิ้นสุดแล้ว คุณพร้อมเป็นนักสืบเสาะภัยพิบัติแล้ว ออกไปสำรวจกันเถอะ",
+          "ผู้ทดสอบความรู้"
+        );
+      } else if (currentQuestionIndex === questions.length) {
+        // แสดงผลลัพธ์และข้อความเมื่อตอบคำถามครบ
+        sendChatMessage(
+          "การทดสอบความรู้พื้นฐานสิ้นสุดแล้ว คุณพร้อมเป็นนักสืบเสาะภัยพิบัติแล้ว ออกไปสำรวจกันเถอะ",
+          "ผู้ทดสอบความรู้"
+        );
+        sendChatMessage(
+          "จากแผนที่ คุณคิดว่าตำแหน่งที่เกิดการปนเปื้อนสารหนู อยู่ที่ตำแหน่งไหนในแผนที่",
           "ผู้ทดสอบความรู้"
         );
         WA.chat.onChatMessage(() => {
           WA.room.hideLayer("logic/doorLock");
-          sendChatMessage(
-            "ประตูห้องสืบสวนเปิดแล้ว คุณมีภาระกิจสืบหาต้นตอจุดรั่วไหลของสารหนู เข้าสู่พื้นที่พื้นที่ปนเปื้อนสารหนู ได้เลย",
-            "ผู้ทดสอบความรู้"
-          );
-          return;
+          currentQuestionIndex++;
         });
+      } else {
+        // แสดงคำถามปัจจุบัน
+        const currentQuestion = questions[currentQuestionIndex];
+        sendChatMessage(currentQuestion.question, "ผู้ทดสอบความรู้");
       }
-
-      const currentQuestion = questions[currentQuestionIndex];
-      sendChatMessage(currentQuestion.question, "ผู้ทดสอบความรู้");
     };
 
     WA.chat.onChatMessage((message) => {
@@ -56,7 +66,7 @@ WA.onInit()
           handleAnswer(message);
         } else {
           sendChatMessage(
-            "การสอบสิ้นสุดแล้ว ออกไปสำรวจกันเถอะ",
+            "ประตูห้องสืบสวนเปิดแล้ว คุณมีภาระกิจสืบหาต้นตอจุดรั่วไหลของสารหนู เข้าสู่พื้นที่พื้นที่ปนเปื้อนสารหนู ได้เลย",
             "ผู้ทดสอบความรู้"
           );
         }
@@ -100,7 +110,36 @@ WA.onInit()
         askQuestion();
       }
     };
+
+    WA.room.area.onEnter("emerdoor").subscribe(() => {
+      if (!WA.state.emerdoor) {
+        openCloseMessage = WA.ui.displayActionMessage({
+          message: `Open Emergency Door  
+          [กดเพื่อเปิดประตู]`,
+          callback: () => {
+            WA.state.emerdoor = true;
+          },
+        });
+      } else {
+        openCloseMessage = WA.ui.displayActionMessage({
+          message: `Close Emergency Door  
+          [กดเพื่อปิดประตู]`,
+          callback: () => {
+            WA.state.emerdoor = false;
+          },
+        });
+      }
+    });
   })
-  .catch((e) => console.error(e));
+  .catch((e) => console.error(e)); 
+
+const loopEmerdoor = () => {
+  if (WA.state.emerdoor) {
+    WA.room.hideLayer("logic/doorLock");
+  } else {
+    WA.room.showLayer("logic/doorLock");
+  }
+  setTimeout(loopEmerdoor, 5000);
+};
 
 export {};

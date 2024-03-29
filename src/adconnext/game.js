@@ -14,32 +14,31 @@ WA.onInit()
 
     WA.room.area.onEnter("reset").subscribe(() => {
       openCloseMessage = WA.ui.displayActionMessage({
-        message: ` reset   
-          [กดเพื่อตรวจสอบ]`,
+        message: `Reset Data   
+          [กดเพื่อล้่างข้อมูล]`,
         callback: () => {
           reset();
         },
       });
     });
-    
-    if (!explored) {
-      exploreZones.forEach((zone) => {
-        const zoneName = zone.zone;
-        zone.value.forEach((areaIndex, index) => {
-          const areaId = `${zoneName}${index + 1}`;
-          const areaValue = zone.value[index];
-          const explore = `explore/${zoneName}/${index + 1}`;
-          WA.room.area.onEnter(areaId + "f").subscribe(() => {
+
+    exploreZones.forEach((zone) => {
+      const zoneName = zone.zone;
+      zone.value.forEach((areaIndex, index) => {
+        const areaId = `${zoneName}${index + 1}`;
+        const areaValue = zone.value[index];
+        const explore = `explore/${zoneName}/${index + 1}`;
+        WA.room.area.onEnter(areaId + "f").subscribe(() => {
+          if (!explored) {
             if (!WA.state[areaId]) {
               openCloseMessage = WA.ui.displayActionMessage({
                 message: ` ต้องการสำรวจพื้นที่ ${areaId} นี้   
                 [กดเพื่อตรวจสอบ]`,
                 callback: () => {
                   explored = true;
-                  console.log(explored);
                   WA.state[areaId] = true;
                   WA.state.map++;
-
+                  console.log(WA.state.map);
                   WA.chat.open();
                   WA.chat.sendChatMessage(
                     `บริเวณ ${areaId} ` + areaValue,
@@ -49,21 +48,21 @@ WA.onInit()
               });
             } else {
               openCloseMessage = WA.ui.displayActionMessage({
-                message: `พื้นที่ ${areaId} นี้ถูกสำรวจไปแล้ว     
-              [กดเพื่อออก]`,
-                callback: () => {
-                  openCloseMessage.remove();
-                },
+                message: `พื้นที่ ${areaId} นี้ถูกสำรวจไปแล้ว`,
               });
             }
-          });
-          console.log("sadasd :",explored);
-          WA.room.area.onLeave(areaId + "f").subscribe(() => {
-            openCloseMessage.remove();
-          });
+          } else {
+            openCloseMessage = WA.ui.displayActionMessage({
+              message: `คุณได้ทำการสำรวจไปแล้ว`,
+            });
+          }
+        });
+
+        WA.room.area.onLeave(areaId + "f").subscribe(() => {
+          openCloseMessage.remove();
         });
       });
-    }
+    });
   })
   .catch((e) => console.error(e));
 
@@ -76,6 +75,8 @@ const loop = () => {
         const explore = `explore/${zoneName}/${index + 1}`;
         if (WA.state[areaId]) {
           WA.room.showLayer(explore);
+        } else {
+          WA.room.hideLayer(explore);
         }
       });
     });
@@ -92,6 +93,7 @@ const reset = () => {
       WA.state[areaId] = false;
     });
   });
+  WA.state.map = 0;
 };
 
 export {};
