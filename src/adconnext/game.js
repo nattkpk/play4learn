@@ -20,6 +20,9 @@ WA.onInit()
           reset();
         },
       });
+      WA.room.area.onLeave("reset").subscribe(() => {
+        openCloseMessage.remove();
+      });
     });
 
     exploreZones.forEach((zone) => {

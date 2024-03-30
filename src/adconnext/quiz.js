@@ -3,6 +3,7 @@
 import { questions } from "./data/quiz.js";
 console.info("The Quiz Script has successfully begun!");
 
+let quizDone = false;
 let quiz = false;
 let score = 0;
 let currentQuestionIndex = 0;
@@ -52,6 +53,7 @@ WA.onInit()
         WA.chat.onChatMessage(() => {
           WA.room.hideLayer("logic/doorLock");
           currentQuestionIndex++;
+          quizDone = true;
         });
       } else {
         // แสดงคำถามปัจจุบัน
@@ -129,6 +131,10 @@ WA.onInit()
           },
         });
       }
+      WA.room.area.onLeave("emerdoor").subscribe(() => {
+        openCloseMessage.remove();
+      });
+
     });
   })
   .catch((e) => console.error(e)); 
@@ -137,7 +143,9 @@ const loopEmerdoor = () => {
   if (WA.state.emerdoor) {
     WA.room.hideLayer("logic/doorLock");
   } else {
+    if(!quizDone){
     WA.room.showLayer("logic/doorLock");
+    }
   }
   setTimeout(loopEmerdoor, 5000);
 };
