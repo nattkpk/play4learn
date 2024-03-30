@@ -54,6 +54,8 @@ WA.onInit()
       });
     };
 
+    
+
     bootstrapExtra()
       .then(() => {
         console.log("Scripting API Extra ready");

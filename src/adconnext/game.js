@@ -15,12 +15,25 @@ WA.onInit()
     WA.room.area.onEnter("reset").subscribe(() => {
       openCloseMessage = WA.ui.displayActionMessage({
         message: `Reset Data   
-          [กดเพื่อล้่างข้อมูล]`,
+          [กดเพื่อล้างข้อมูล]`,
         callback: () => {
           reset();
         },
       });
       WA.room.area.onLeave("reset").subscribe(() => {
+        openCloseMessage.remove();
+      });
+    });
+
+    WA.room.area.onEnter("back").subscribe(() => {
+      openCloseMessage = WA.ui.displayActionMessage({
+        message: `Back to Start Point   
+          [กดเพื่อกลับจุดเริ่มต้น]`,
+        callback: () => {
+          WA.nav.goToRoom("#/");
+        },
+      });
+      WA.room.area.onLeave("back").subscribe(() => {
         openCloseMessage.remove();
       });
     });
@@ -66,6 +79,7 @@ WA.onInit()
         });
       });
     });
+
   })
   .catch((e) => console.error(e));
 
