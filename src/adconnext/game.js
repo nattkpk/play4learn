@@ -2,7 +2,7 @@
 
 import { exploreZones } from "./data/game";
 
-console.log("BoradGame Run");
+console.log("BoradGame Script Run");
 
 let explored = false;
 let map = -99;
