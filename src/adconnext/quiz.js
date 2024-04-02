@@ -41,7 +41,10 @@ WA.onInit()
           "ผู้ทดสอบความรู้"
         );
       } else if (currentQuestionIndex === questions.length) {
-        // แสดงผลลัพธ์และข้อความเมื่อตอบคำถามครบ
+        sendChatMessage(
+          `คุณได้คะแนนอยู่ที่ ${score} เด็ม ${questions.length}`,
+          "ผู้ทดสอบความรู้"
+        );
         sendChatMessage(
           "การทดสอบความรู้พื้นฐานสิ้นสุดแล้ว คุณพร้อมเป็นนักสืบเสาะภัยพิบัติแล้ว ออกไปสำรวจกันเถอะ",
           "ผู้ทดสอบความรู้"
@@ -108,7 +111,8 @@ WA.onInit()
         currentQuestionIndex++;
         askQuestion();
       } else {
-        sendChatMessage("ยังไม่ถูกต้อง!", "ผู้ทดสอบความรู้");
+        sendChatMessage("เป็นคำตอบที่ไม่ถูกต้อง!", "ผู้ทดสอบความรู้");
+        currentQuestionIndex++;
         askQuestion();
       }
     };
