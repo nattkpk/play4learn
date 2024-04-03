@@ -40,15 +40,16 @@ WA.onInit()
           "การทดสอบความรู้พื้นฐานสิ้นสุดแล้ว คุณพร้อมเป็นนักสืบเสาะภัยพิบัติแล้ว ออกไปสำรวจกันเถอะ",
           "ผู้ทดสอบความรู้"
         );
+        quizDone = WA.state.emerdoor
       } else if (currentQuestionIndex === questions.length) {
         sendChatMessage(
           `คุณได้คะแนนอยู่ที่ ${score} เด็ม ${questions.length}`,
           "ผู้ทดสอบความรู้"
         );
-        sendChatMessage(
-          "การทดสอบความรู้พื้นฐานสิ้นสุดแล้ว คุณพร้อมเป็นนักสืบเสาะภัยพิบัติแล้ว ออกไปสำรวจกันเถอะ",
-          "ผู้ทดสอบความรู้"
-        );
+        // sendChatMessage(
+        //   "การทดสอบความรู้พื้นฐานสิ้นสุดแล้ว คุณพร้อมเป็นนักสืบเสาะภัยพิบัติแล้ว ออกไปสำรวจกันเถอะ",
+        //   "ผู้ทดสอบความรู้"
+        // );
         sendChatMessage(
           "จากแผนที่ คุณคิดว่าตำแหน่งที่เกิดการปนเปื้อนสารหนู อยู่ที่ตำแหน่งไหนในแผนที่",
           "ผู้ทดสอบความรู้"
@@ -108,13 +109,16 @@ WA.onInit()
       if (isCorrect) {
         score++;
         sendChatMessage("ตอบได้ถูกต้อง!", "ผู้ทดสอบความรู้");
-        currentQuestionIndex++;
-        askQuestion();
       } else {
         sendChatMessage("เป็นคำตอบที่ไม่ถูกต้อง!", "ผู้ทดสอบความรู้");
-        currentQuestionIndex++;
-        askQuestion();
+        sendChatMessage(
+          `คำตอบที่ถูกต้องคือ: ${questions[currentQuestionIndex].answer.join(" , ")}`,
+          "ผู้ทดสอบความรู้"
+        );
       }
+    
+      currentQuestionIndex++;
+      askQuestion();
     };
 
     WA.room.area.onEnter("emerdoor").subscribe(() => {
