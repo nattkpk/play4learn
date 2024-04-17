@@ -17,10 +17,36 @@ WA.onInit()
         message: `Reset Data   
           [กดเพื่อล้างข้อมูล]`,
         callback: () => {
+          WA.state.data1 = false;
           reset();
         },
       });
       WA.room.area.onLeave("reset").subscribe(() => {
+        openCloseMessage.remove();
+      });
+    });
+
+    WA.room.area.onEnter("data1").subscribe(() => {
+      if (!WA.state.data1) {
+        openCloseMessage = WA.ui.displayActionMessage({
+          message: `Show Ex.Data1  
+          [กดเพื่อแสดงข้อมูลตัวอย่าง]`,
+          callback: () => {
+            WA.state.data1 = true;
+            WA.state.map++;
+          },
+        });
+      } else {
+        openCloseMessage = WA.ui.displayActionMessage({
+          message: `Close Ex.Data1  
+          [กดเพื่อปิดข้อมูลตัวอย่าง]`,
+          callback: () => {
+            WA.state.data1 = false;
+            WA.state.map++;
+          },
+        });
+      }
+      WA.room.area.onLeave("data1").subscribe(() => {
         openCloseMessage.remove();
       });
     });
@@ -79,19 +105,26 @@ WA.onInit()
         });
       });
     });
-
   })
   .catch((e) => console.error(e));
 
 const loop = () => {
   if (WA.state.map !== map) {
+    if (WA.state.data1) {
+      WA.room.showLayer("explore/data1");
+    } else {
+      WA.room.hideLayer("explore/data1");
+    }
+
     exploreZones.forEach((zone) => {
       const zoneName = zone.zone;
       zone.value.forEach((areaIndex, index) => {
         const areaId = `${zoneName}${index + 1}`;
         const explore = `explore/${zoneName}/${index + 1}`;
-        if (WA.state[areaId]) {
-          WA.room.showLayer(explore);
+        if (!WA.state.data1) {
+          if (WA.state[areaId]) {
+            WA.room.showLayer(explore);
+          }
         } else {
           WA.room.hideLayer(explore);
         }
